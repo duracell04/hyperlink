@@ -19,26 +19,16 @@ const AboutUs = () => {
 
               <div className="col-md-12 mt30 mb-5">
                 <p className="desc text-center mb20">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa
-                  nobis impedit maxime deserunt dolorum voluptatum, porro autem
-                  blanditiis dolor illo provident sunt architecto cum nostrum id
-                  ab quibusdam ut magnam. Porro iure deleniti qui odit tempora,
-                  ducimus optio? Obcaecati reiciendis cupiditate veritatis
-                  cumque saepe numquam enim cum distinctio nobis tempore
-                  repellendus ipsa iure, perspiciatis consequuntur. Nihil
-                  facilis earum distinctio dignissimos! Repudiandae vitae enim,
-                  velit perferendis provident iusto iure cupiditate aspernatur
-                  odio nobis incidunt beatae molestias qui, vel aliquam eum.
-                  Eius quas numquam nesciunt beatae quisquam minima repellat
-                  itaque sapiente molestias! Dolores officiis magni, vel
-                  exercitationem eaque ipsum quam commodi quae. Sint,
-                  consequuntur alias similique sit laborum ducimus architecto
-                  inventore nobis unde itaque, hic sunt ipsum eveniet.
-                  Voluptatum suscipit labore quidem! Velit, vero reprehenderit
-                  dolorum provident cupiditate excepturi incidunt quisquam omnis
-                  voluptatibus est eius officia unde. Quasi delectus eos optio
-                  asperiores iste ullam inventore explicabo sapiente rem fuga,
-                  ratione error consequatur!
+                  The inception of Hyperlink emerged from a simple question:
+                  "What if one platform could grant access to all web tools?"
+                  Enrique George Zbinden, our founder, asked this while
+                  navigating the complexities of managing multiple web tools
+                  across several IT offices. From forgetting ongoing
+                  subscriptions to managing numerous passwords and emails,
+                  George recognized a universal problem within the digital
+                  workforce. This realization led to the birth of Hyperlink, a
+                  revolutionary solution that unifies the power of all web tools
+                  under a single, accessible platform.
                 </p>
                 <div className="wrap-btn justify-content-center">
                   <Link to="/contact" className="tf-button style1">
@@ -147,7 +137,7 @@ const AboutUs = () => {
                             </div>
                           </div>
                         </div>
-                        
+
                         <div className="col-md-9 col-12 d-flex align-items-center px-5">
                           {data.describe}
                         </div>
