@@ -1,7 +1,6 @@
 import React, { createContext, useEffect, useState } from "react";
 import { auth } from "../configs/firebase";
-import Spinner from "react-bootstrap/Spinner";
-import LogoAnimation from "../assets/animations/hyperlink logo.gif";
+import LogoAnimation from "../assets/animations/hyperlink-logo.gif";
 
 // Create the AuthContext
 export const AuthContext = createContext();
@@ -11,10 +10,19 @@ export const AuthContextProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
+
+    // Simulate a loading delay of 3 seconds
+    useEffect(() => {
+      const timer = setTimeout(() => {
+        setLoading(false);
+      }, 4000);
+  
+      return () => clearTimeout(timer);
+    }, []);
+
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
       setCurrentUser(user);
-      setLoading(false);
     });
 
     return () => {
@@ -27,10 +35,10 @@ export const AuthContextProvider = ({ children }) => {
     <AuthContext.Provider value={{ currentUser }}>
       {loading ? (
         <div
-          style={{ paddingTop: "450px" }}
+          style={{ paddingTop: "220px" }}
           className="h-100 mh-100 w-100 d-flex align-items-center justify-content-center"
         >
-          <img src={LogoAnimation} alt="" />
+          <img src={LogoAnimation} width={450} alt="" />
         </div>
       ) : (
         children

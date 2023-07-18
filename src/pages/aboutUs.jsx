@@ -66,10 +66,10 @@ const AboutUs = () => {
                   <div className="project-info-form check-radio">
                     <div className="form-inner">
                       <div className="row">
-                        <div className="col-3">
+                        <div className="col-md-3 col-12">
                           <div
                             key={data.id}
-                            className="team-box-v2 w-100"
+                            className="team-box-v2 ms-md-auto ms-0  w-100"
                             data-aos="fade-up"
                             data-aos-delay="100"
                             data-aos-duration="800"
@@ -147,8 +147,8 @@ const AboutUs = () => {
                             </div>
                           </div>
                         </div>
-
-                        <div className="col-9 d-flex align-items-center px-5">
+                        
+                        <div className="col-md-9 col-12 d-flex align-items-center px-5">
                           {data.describe}
                         </div>
                       </div>
