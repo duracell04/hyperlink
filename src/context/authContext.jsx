@@ -10,19 +10,10 @@ export const AuthContextProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
-
-    // Simulate a loading delay of 3 seconds
-    useEffect(() => {
-      const timer = setTimeout(() => {
-        setLoading(false);
-      }, 4000);
-  
-      return () => clearTimeout(timer);
-    }, []);
-
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
       setCurrentUser(user);
+      setLoading(false);
     });
 
     return () => {
