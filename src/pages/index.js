@@ -1,17 +1,19 @@
-import Home from "./Home";
-import ProjectDetails from "./ProjectDetails";
-import UserDashboard from "./TeamDetails";
+import React, { lazy } from "react";
 import "../components/button/styles.scss";
 
-import Login from "./Login";
-import Register from "./Register";
-import ForgetPass from "./ForgetPass";
-import Roadmap from "./Roadmap";
-import Blogs from "./Blogs";
-import BlogDetails from "./BlogDetails";
-import Contact from "./Contact";
-import InnerToolbox from "./InnerToolbox";
-import AboutUs from "./aboutUs";
+const Home = lazy(() => import("./Home"));
+const ProjectDetails = lazy(() => import("./ProjectDetails"));
+const UserDashboard = lazy(() => import("./TeamDetails"));
+
+const Login = lazy(() => import("./Login"));
+const Register = lazy(() => import("./Register"));
+const ForgetPass = lazy(() => import("./ForgetPass"));
+const Roadmap = lazy(() => import("./Roadmap"));
+const Blogs = lazy(() => import("./Blogs"));
+const BlogDetails = lazy(() => import("./BlogDetails"));
+const Contact = lazy(() => import("./Contact"));
+const InnerToolbox = lazy(() => import("./InnerToolbox"));
+const AboutUs = lazy(() => import("./aboutUs"));
 
 const routes = [
   { path: "/login", component: <Login /> },
