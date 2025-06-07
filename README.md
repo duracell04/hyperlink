@@ -31,3 +31,23 @@
 - **Productivity:** Enhance productivity by tracking usage and managing resources effectively.
 - **Security:** Securely manage credentials and sensitive information.
 - **Customization:** Tailor the platform to fit your specific needs and workflows.
+
+## Environment Configuration
+
+The Firebase credentials used by the application are loaded from environment variables.
+Create a copy of `.env.example` named `.env` and replace the placeholder values
+with your Firebase project configuration:
+
+```bash
+cp .env.example .env
+# then edit .env with your credentials
+```
+
+The following variables must be provided:
+
+- `REACT_APP_FIREBASE_API_KEY`
+- `REACT_APP_FIREBASE_AUTH_DOMAIN`
+- `REACT_APP_FIREBASE_PROJECT_ID`
+- `REACT_APP_FIREBASE_STORAGE_BUCKET`
+- `REACT_APP_FIREBASE_MESSAGING_SENDER_ID`
+- `REACT_APP_FIREBASE_APP_ID`
