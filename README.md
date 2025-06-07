@@ -78,3 +78,7 @@ Deploy to Firebase Hosting (requires Firebase CLI configured for your project):
 npx firebase deploy
 ```
 
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
