@@ -21,7 +21,7 @@ const InnerToolbox = () => {
     if (!toolboxesList.includes(pageTitle)) {
       navigate("/");
     }
-  }, []);
+  }, [pageTitle, navigate]);
 
   return (
     <div className="inner-page project-grid-5">
