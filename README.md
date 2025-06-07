@@ -18,13 +18,15 @@
 - **Subscription Management:** Efficiently manage web tool subscriptions, evaluate cost efficiency, and optimize resource distribution within teams.
 - **Payment Tracking:** Keep track of payment cycles to avoid missed deadlines and ensure timely payments.
 
-## Planned Enhancements
+## Roadmap
 
-- **HyperCloud Integration:** Advanced API-driven file transfer capabilities.
-- **HyperFeed Customization:** AI-driven personalized news feed from various web tools.
-- **HyperTracker:** Enhanced time tracking and reporting for better productivity insights.
-- **HyperFunctionalities:** Comprehensive management and utilization of web tool features.
-- **HyperRecommendation:** Intelligent tool recommendations based on user behavior and needs.
+Hyperlink is actively evolving. Upcoming features include:
+
+- **HyperCloud Integration** – API-driven file transfer capabilities for seamless data movement.
+- **HyperFeed Customization** – AI-powered personalized news feeds from connected tools.
+- **HyperTracker** – Advanced time tracking and reporting for productivity insights.
+- **HyperFunctionalities** – Centralized management of all features offered by your web tools.
+- **HyperRecommendation** – Smart suggestions for tools that best fit your workflow.
 
 ## Benefits
 
@@ -45,14 +47,15 @@ cp .env.example .env
 # then edit .env with your credentials
 ```
 
-The following variables must be provided:
+The `.env` file should define the following keys. Values can be copied from your
+Firebase project settings:
 
-- `REACT_APP_FIREBASE_API_KEY`
-- `REACT_APP_FIREBASE_AUTH_DOMAIN`
-- `REACT_APP_FIREBASE_PROJECT_ID`
-- `REACT_APP_FIREBASE_STORAGE_BUCKET`
-- `REACT_APP_FIREBASE_MESSAGING_SENDER_ID`
-- `REACT_APP_FIREBASE_APP_ID`
+- `REACT_APP_FIREBASE_API_KEY` – Web API key. Example: `AIzaSyXXXXXXX`.
+- `REACT_APP_FIREBASE_AUTH_DOMAIN` – Auth domain. Example: `my-app.firebaseapp.com`.
+- `REACT_APP_FIREBASE_PROJECT_ID` – Project ID. Example: `my-app`.
+- `REACT_APP_FIREBASE_STORAGE_BUCKET` – Storage bucket name. Example: `my-app.appspot.com`.
+- `REACT_APP_FIREBASE_MESSAGING_SENDER_ID` – Sender ID. Example: `1234567890`.
+- `REACT_APP_FIREBASE_APP_ID` – App ID. Example: `1:1234567890:web:abcdef123456`.
 
 ## Getting Started
 
