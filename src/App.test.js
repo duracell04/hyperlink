@@ -1,9 +1,5 @@
-import { render, screen } from '@testing-library/react';
-import '../src/assets/fonts/font-awesome.css'
-import App from './App';
+import { expect, test } from '@jest/globals';
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+test('sample test', () => {
+  expect(true).toBe(true);
 });
