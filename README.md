@@ -1,5 +1,7 @@
 # Hyperlink
 
+![CI](https://github.com/USER/REPO/actions/workflows/ci.yml/badge.svg)
+
 ## Overview
 
 **Hyperlink** is a comprehensive SaaS platform designed to streamline and optimize web tool management for businesses and freelancers. Our mission is to eliminate the complexity of managing multiple web tools by providing a unified platform that simplifies processes, tracks usage, and offers cost-benefit analyses.
