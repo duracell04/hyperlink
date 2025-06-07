@@ -102,7 +102,7 @@ function UserDashboard(props) {
                           <li>
                             <img
                               src={require("../assets/images/chart/color_1.png")}
-                              alt=""
+                              alt="Farming Pool segment"
                             />
                             <div className="desc">
                               <p className="name">Farming Pool</p>
@@ -112,7 +112,7 @@ function UserDashboard(props) {
                           <li>
                             <img
                               src={require("../assets/images/chart/color_2.png")}
-                              alt=""
+                              alt="Staking segment"
                             />
                             <div className="desc">
                               <p className="name">Staking</p>
@@ -122,7 +122,7 @@ function UserDashboard(props) {
                           <li>
                             <img
                               src={require("../assets/images/chart/color_3.png")}
-                              alt=""
+                              alt="Ecosystem segment"
                             />
                             <div className="desc">
                               <p className="name">Ecosystem</p>
@@ -132,7 +132,7 @@ function UserDashboard(props) {
                           <li>
                             <img
                               src={require("../assets/images/chart/color_4.png")}
-                              alt=""
+                              alt="Advisor segment"
                             />
                             <div className="desc">
                               <p className="name">Advisor</p>
@@ -142,7 +142,7 @@ function UserDashboard(props) {
                           <li>
                             <img
                               src={require("../assets/images/chart/color_5.png")}
-                              alt=""
+                              alt="Private Sale segment"
                             />
                             <div className="desc">
                               <p className="name">Private Sale</p>
@@ -152,7 +152,7 @@ function UserDashboard(props) {
                           <li>
                             <img
                               src={require("../assets/images/chart/color_6.png")}
-                              alt=""
+                              alt="Liquidity segment"
                             />
                             <div className="desc">
                               <p className="name">Liquidity</p>
@@ -162,7 +162,7 @@ function UserDashboard(props) {
                           <li>
                             <img
                               src={require("../assets/images/chart/color_7.png")}
-                              alt=""
+                              alt="Marketing segment"
                             />
                             <div className="desc">
                               <p className="name">Marketing</p>
@@ -172,7 +172,7 @@ function UserDashboard(props) {
                           <li>
                             <img
                               src={require("../assets/images/chart/color_8.png")}
-                              alt=""
+                              alt="Team segment"
                             />
                             <div className="desc">
                               <p className="name">Team</p>

@@ -51,7 +51,7 @@ function Roadmap() {
                         className={`roadmap-box-style ${item.status}`}
                       >
                         <div className="icon">
-                          <img src={icon} alt="" />
+                          <img src={icon} alt="Roadmap milestone icon" />
                         </div>
                         <div className="content">
                           <h6 className="date">{item.time}</h6>
@@ -73,7 +73,7 @@ function Roadmap() {
                         className={`roadmap-box-style ${item.status}`}
                       >
                         <div className="icon">
-                          <img src={icon} alt="" />
+                          <img src={icon} alt="Roadmap milestone icon" />
                         </div>
                         <div className="content">
                           <h6 className="date">{item.time}</h6>
@@ -101,7 +101,7 @@ function Roadmap() {
                         className={`roadmap-box-style ${item.status}`}
                       >
                         <div className="icon">
-                          <img src={icon} alt="" />
+                          <img src={icon} alt="Roadmap milestone icon" />
                         </div>
                         <div className="content">
                           <h6 className="date">{item.time}</h6>

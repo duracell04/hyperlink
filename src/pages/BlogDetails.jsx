@@ -112,7 +112,7 @@ function BlogDetails() {
                     <div className="image">
                       <img
                         src={require("../assets/images/post/post_25.png")}
-                        alt=""
+                        alt="Meta promotional image"
                       />
                       <p>Image courtesy of Meta</p>
                     </div>
@@ -194,7 +194,7 @@ function BlogDetails() {
                     <div className="image mb12">
                       <img
                         src={require("../assets/images/post/post_29.png")}
-                        alt=""
+                        alt="Product demonstration at Meta Connect 2022"
                       />
                       <p>Product demonstration at Meta Connect 2022</p>
                     </div>
@@ -305,7 +305,7 @@ function BlogDetails() {
                       <div className="image">
                         <img
                           src={require("../assets/images/post/post_20.png")}
-                          alt=""
+                          alt="Meta Is Still Betting on a VR Revolution That May Never Come thumbnail"
                         />
                       </div>
                       <div className="content">
@@ -339,7 +339,7 @@ function BlogDetails() {
                       <div className="image">
                         <img
                           src={require("../assets/images/post/post_21.png")}
-                          alt=""
+                          alt="Meta’s VR Headset Harvests Personal Data Right Off Your... thumbnail"
                         />
                       </div>
                       <div className="content">
@@ -373,7 +373,7 @@ function BlogDetails() {
                       <div className="image">
                         <img
                           src={require("../assets/images/post/post_22.png")}
-                          alt=""
+                          alt="VR Still Stinks Because It Doesn’t Smell thumbnail"
                         />
                       </div>
                       <div className="content">
@@ -406,7 +406,7 @@ function BlogDetails() {
                       <div className="image">
                         <img
                           src={require("../assets/images/post/post_23.png")}
-                          alt=""
+                          alt="How China Threatens to Splinter the Metaverse thumbnail"
                         />
                       </div>
                       <div className="content">
@@ -439,7 +439,7 @@ function BlogDetails() {
                       <div className="image">
                         <img
                           src={require("../assets/images/post/post_24.png")}
-                          alt=""
+                          alt="It's Not Too Late to Save the Metaverse thumbnail"
                         />
                       </div>
                       <div className="content">

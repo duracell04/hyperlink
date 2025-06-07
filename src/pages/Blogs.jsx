@@ -24,7 +24,7 @@ function Blogs() {
               <div key={item.id} className="col-lg-4 col-md-12">
                 <div className="grid-box">
                   <div className="image">
-                    <img src={item.img} alt="" />
+                    <img src={item.img} alt={item.heading} />
                   </div>
                   <div className="content">
                     <Link to={`/blogs/${i}`} className="tag">

@@ -31,10 +31,10 @@ function ProjectDetails() {
                     <img
                       className="mask"
                       src={require("../assets/images/common/canva.webp")}
-                      alt=""
+                      alt="Screenshot of Canva tool"
                     />
                     <div className="shape">
-                      <img src={""} alt="" />
+                      <img src={""} alt="Decorative shape" />
                     </div>
                   </div>
                   <div className="content">
@@ -109,7 +109,7 @@ function ProjectDetails() {
                   </li>
                 </ul>
                 <div className="image mb30">
-                  <img className="boder-20" alt="" />
+                  <img className="boder-20" alt="Project preview" />
                 </div>
                 <div className="box">
                   <h4 className="heading mb10">1. Project overview</h4>
