@@ -64,13 +64,14 @@ function ProjectDetails() {
             >
               <div className="prodect-content">
                 <h4 className="heading mb10">About Project</h4>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. In a
-                  magna ipsum. Phasellus dignissim odio eget turpis scelerisque
-                  imperdiet. Praesent sit amet maximus nunc. Donec ornare mauris
-                  odio, sit amet vestibulum lectus elementum vitae. Nulla eget
-                  fermentum dolor. Sed quis ante iaculis, consequat odio eget.
-                </p>
+                  <p>
+                    Hyperlink centralizes all your web tools so you can manage
+                    credentials and subscriptions from a single dashboard.
+                  </p>
+                  <p>
+                    The platform syncs data securely and provides detailed
+                    reports on efficiency and spending across your team.
+                  </p>
                 <div className="spacing"></div>
                 <ul className="social justify-content-start mb30">
                   <li>
@@ -113,44 +114,25 @@ function ProjectDetails() {
                 <div className="box">
                   <h4 className="heading mb10">1. Project overview</h4>
                   <p>
-                    Amet minim mollit non deserunt ullamco est sit aliqua dolor
-                    do amet sint. Velit officia consequat duis enim velit
-                    mollit. Exercitation veniam consequat sunt nostrud amet.
+                    Hyperlink centralizes all your web tools so you can manage
+                    credentials and subscriptions from a single dashboard.
                   </p>
                   <p>
-                    Nulla sed ex in magna ullamcorper lacinia. Maecenas maximus
-                    sagittis tellus, ac hendrerit ex. Maecenas ut bibendum ex,
-                    at luctus velit. Vestibulum sit amet neque odio. Suspendisse
-                    nisl odio, accumsan at ante at, ultrices mollis augue. Morbi
-                    id lorem elementum, interdum velit eu, pellentesque felis.
-                    Morbi tincidunt ultrices felis sed vulputate. Etiam non nisl
-                    congue, ultricies augue eget, tristique enim.
+                    The platform syncs data securely and provides detailed
+                    reports on efficiency and spending across your team.
                   </p>
                   <ul>
                     <li>
-                      <span>
-                        Praesent fringilla, purus quis congue rutrum, tortor
-                        ligula egestas justo, eu venenatis erat tellus ut risus.
-                        Nam elit magna, facilisis nec iaculis id
-                      </span>
+                      <span>Unified credential management across tools.</span>
                     </li>
                     <li>
-                      <span>
-                        Fusce id erat rutrum, dignissim diam eget, finibus odio.
-                        Aenean porta lacus suscipit urna luctus luctus.
-                      </span>
+                      <span>Automated usage tracking and cost analytics.</span>
                     </li>
                     <li>
-                      <span>
-                        Maecenas ut bibendum ex, at luctus velit. Vestibulum sit
-                        amet neque odio
-                      </span>
+                      <span>Secure file transfers between connected services.</span>
                     </li>
                     <li>
-                      <span>
-                        Morbi id lorem elementum, interdum velit eu,
-                        pellentesque felis.
-                      </span>
+                      <span>Smart recommendations to optimize your tool stack.</span>
                     </li>
                   </ul>
                 </div>

@@ -114,9 +114,7 @@ function BlogDetails() {
                         src={require("../assets/images/post/post_25.png")}
                         alt=""
                       />
-                      <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit
-                      </p>
+                      <p>Image courtesy of Meta</p>
                     </div>
                     <p>
                       Meta Platforms unveiled its Quest Pro virtual and mixed
@@ -198,9 +196,7 @@ function BlogDetails() {
                         src={require("../assets/images/post/post_29.png")}
                         alt=""
                       />
-                      <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit
-                      </p>
+                      <p>Product demonstration at Meta Connect 2022</p>
                     </div>
                     <p>
                       Tribe XR is already available in virtual reality, but a
