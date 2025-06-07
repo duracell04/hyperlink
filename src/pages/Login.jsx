@@ -71,7 +71,7 @@ function Login() {
                     </fieldset>
                   </div>
                   <Link to="/forgetPass" className="fogot-pass">
-                    Fogot password?
+                    Forgot password?
                   </Link>
                 </div>
 
