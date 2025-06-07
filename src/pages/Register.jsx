@@ -10,9 +10,18 @@ function Register(props) {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [error, setError] = useState("");
 
   const onSubmit = async (e) => {
     e.preventDefault();
+
+    if (password !== confirmPassword) {
+      setError("Passwords do not match");
+      return;
+    }
+
+    setError("");
 
     await createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
@@ -75,9 +84,16 @@ function Register(props) {
                       <input
                         type="password"
                         placeholder="Confirm password"
+                        value={confirmPassword}
+                        onChange={(e) => setConfirmPassword(e.target.value)}
                         required
                       />
                     </fieldset>
+                    {error && (
+                      <p style={{ color: "red" }} className="error">
+                        {error}
+                      </p>
+                    )}
                     <fieldset className="checkbox">
                       <input type="checkbox" id="checkbox" name="checkbox" />
                       <label htmlFor="checkbox" className="icon"></label>
@@ -89,7 +105,11 @@ function Register(props) {
                 </div>
 
                 <div className="wrap-btn">
-                  <button type="submit" className="tf-button style2">
+                  <button
+                    type="submit"
+                    className="tf-button style2"
+                    disabled={!password || password !== confirmPassword}
+                  >
                     Register
                   </button>
                 </div>
