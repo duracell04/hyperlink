@@ -51,3 +51,30 @@ The following variables must be provided:
 - `REACT_APP_FIREBASE_STORAGE_BUCKET`
 - `REACT_APP_FIREBASE_MESSAGING_SENDER_ID`
 - `REACT_APP_FIREBASE_APP_ID`
+
+## Getting Started
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Run the development server:
+
+```bash
+npm start
+```
+
+Build for production:
+
+```bash
+npm run build
+```
+
+Deploy to Firebase Hosting (requires Firebase CLI configured for your project):
+
+```bash
+npx firebase deploy
+```
+
