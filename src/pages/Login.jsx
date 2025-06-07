@@ -9,6 +9,7 @@ function Login() {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
 
   const onLogin = (e) => {
     e.preventDefault();
@@ -21,8 +22,12 @@ function Login() {
       })
       .catch((error) => {
         const errorCode = error.code;
-        const errorMessage = error.message;
-        console.log(errorCode, errorMessage);
+        const messages = {
+          "auth/wrong-password": "Incorrect email or password.",
+          "auth/user-not-found": "No account found with this email.",
+          "auth/too-many-requests": "Too many failed attempts. Try again later.",
+        };
+        setError(messages[errorCode] || "Failed to login. Please try again.");
       });
   };
 
@@ -80,6 +85,11 @@ function Login() {
                     Login
                   </button>
                 </div>
+                {error && (
+                  <p style={{ color: "red" }} className="error">
+                    {error}
+                  </p>
+                )}
               </form>
             </div>
           </div>
