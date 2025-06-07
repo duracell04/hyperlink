@@ -1,17 +1,26 @@
 import React from "react";
-
 import { Link } from "react-router-dom";
 
-const Breadcrumbs = ({ mainPage = "Home", mainLink = "/", pageTitle, secondLink, innerPage }) => {
+export interface BreadcrumbsProps {
+  mainPage?: string;
+  mainLink?: string;
+  pageTitle: string;
+  secondLink?: string;
+  innerPage?: string;
+}
+
+const Breadcrumbs: React.FC<BreadcrumbsProps> = ({
+  mainPage = "Home",
+  mainLink = "/",
+  pageTitle,
+  secondLink,
+  innerPage,
+}) => {
   return (
     <div className="container breadcrumb-section">
       <div className="row">
         <div className="col-md-12 ">
-          <div
-            className="breadcrumbs"
-            data-aos="zoom-in"
-            data-aos-duration="800"
-          >
+          <div className="breadcrumbs" data-aos="zoom-in" data-aos-duration="800">
             <ul>
               <li>
                 <Link to={mainLink}>{mainPage}</Link>
