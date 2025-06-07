@@ -65,7 +65,7 @@ const AboutUs = () => {
                             data-aos-duration="800"
                           >
                             <div className="image">
-                              <img src={data.img} alt="" />
+                              <img src={data.img} alt={data.name} />
                             </div>
                             <div className="content">
                               <h5 className="name">

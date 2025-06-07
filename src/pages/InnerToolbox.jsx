@@ -50,9 +50,9 @@ const InnerToolbox = () => {
                   >
                     <div className="header_project">
                       <div className="image">
-                        <img className="mask" src={item.img} alt="" />
+                        <img className="mask" src={item.img} alt={item.actualName} />
                         <div className="shape">
-                          <img src={""} alt="" />
+                          <img src={""} alt="Decorative shape" />
                         </div>
                       </div>
                       <h5 className="heading">
