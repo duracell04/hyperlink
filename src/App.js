@@ -1,10 +1,12 @@
-import { React, useEffect } from "react";
+import React, { useEffect, Suspense, lazy } from "react";
 import { Route, Routes } from "react-router-dom";
 import AOS from "aos";
 import routes from "./pages";
 import "../src/assets/fonts/font-awesome.css";
-import Header from "./components/header";
-import Footer from "./components/footer";
+import Loader from "./components/Loader";
+
+const Header = lazy(() => import("./components/header"));
+const Footer = lazy(() => import("./components/footer"));
 import "./scss/component/_section.scss";
 import "./scss/component/_box.scss";
 import "./scss/component/_tf-section.scss";
@@ -18,16 +20,22 @@ function App() {
   }, []);
   return (
     <>
-      <Header />
+      <Suspense fallback={<Loader />}>
+        <Header />
+      </Suspense>
 
-      <Routes>
-        {routes.map((data, idx) => (
-          <Route key={idx} path={data.path} element={data.component} exact />
-        ))}
-        <Route path="*" element={<NotFound />} />
-      </Routes>
+      <Suspense fallback={<Loader />}>
+        <Routes>
+          {routes.map((data, idx) => (
+            <Route key={idx} path={data.path} element={data.component} exact />
+          ))}
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </Suspense>
 
-      <Footer />
+      <Suspense fallback={<Loader />}>
+        <Footer />
+      </Suspense>
     </>
   );
 }
