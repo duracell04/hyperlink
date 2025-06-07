@@ -1,6 +1,32 @@
 import React from "react";
 
 function Contact(props) {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const data = {
+      name: form.name.value,
+      email: form.email.value,
+      phone: form.phone.value,
+      message: form.message.value,
+    };
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+      console.log("Message sent");
+      form.reset();
+    } catch (error) {
+      console.error("Failed to send message", error);
+    }
+  };
+
   return (
     <div className="inner-page custom-section ">
       <section className="tf-section tf-contact pt60 ">
@@ -103,10 +129,7 @@ function Contact(props) {
         <div className="container">
           <div className="row">
             <div className="col-md-12">
-              <form
-                action="contact/contact-process.php"
-                className="form-contact"
-              >
+              <form onSubmit={handleSubmit} className="form-contact">
                 <div className="project-info-form">
                   <h6 className="title">Leave a message</h6>
                   <div className="form-inner">
@@ -115,6 +138,7 @@ function Contact(props) {
                       <input
                         type="text"
                         id="name"
+                        name="name"
                         placeholder="Enter the name of your project"
                         required
                       />
@@ -124,6 +148,7 @@ function Contact(props) {
                       <input
                         type="email"
                         id="email"
+                        name="email"
                         placeholder="Your email"
                         required
                       />
@@ -133,6 +158,7 @@ function Contact(props) {
                       <input
                         type="number"
                         id="phone"
+                        name="phone"
                         placeholder="Your phone"
                         required
                       />
