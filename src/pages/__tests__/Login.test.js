@@ -4,14 +4,14 @@ import { MemoryRouter } from 'react-router-dom';
 
 // Mock Firebase config and auth functions
 jest.mock('../../configs/firebase', () => ({ auth: {} }));
-const signInMock = jest.fn();
-jest.mock('firebase/auth', () => ({
-  signInWithEmailAndPassword: (...args) => signInMock(...args),
-}));
-
-beforeEach(() => {
-  signInMock.mockReset();
+jest.mock('firebase/auth', () => {
+  const signInMock = jest.fn();
+  return {
+    signInWithEmailAndPassword: signInMock,
+    __esModule: true,
+  };
 });
+
 
 import Login from '../Login';
 
@@ -29,7 +29,8 @@ test('renders login form', () => {
 });
 
 test('shows error message for wrong password', async () => {
-  signInMock.mockRejectedValue({ code: 'auth/wrong-password' });
+  const { signInWithEmailAndPassword } = require('firebase/auth');
+  signInWithEmailAndPassword.mockRejectedValue({ code: 'auth/wrong-password' });
 
   render(
     <MemoryRouter>
