@@ -32,14 +32,9 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "eslint src/**/*.{js,jsx}",
-    "format": "prettier --write src/**/*.{js,jsx,css,scss}"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+    "lint": "eslint . --ext .js,.jsx",
+    "format": "prettier --write src/**/*.{js,jsx,css,scss}",
+    "prepare": "husky install"
   },
   "browserslist": {
     "production": [
@@ -54,7 +49,10 @@
     ]
   },
   "devDependencies": {
+    "eslint": "^8.20.0",
+    "husky": "^8.0.3",
     "prettier": "^2.8.3",
-    "eslint": "^8.20.0"
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-config-prettier": "^10.1.5"
   }
 }
