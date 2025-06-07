@@ -55,7 +55,7 @@ const menus = [
     {
         id: 6,
         name: 'About us',
-        links: 'aboutUs', 
+        links: '/aboutUs',
     },
     
 ]
