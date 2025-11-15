@@ -30,7 +30,7 @@ const Header = () => {
         navigate("/login");
         console.log("Signed out successfully");
       })
-      .catch((error) => {
+      .catch(() => {
         // An error happened.
       });
   };

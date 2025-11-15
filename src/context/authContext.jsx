@@ -1,4 +1,5 @@
 import React, { createContext, useEffect, useState } from "react";
+import PropTypes from "prop-types";
 import { auth } from "../configs/firebase";
 import LogoAnimation from "../assets/animations/hyperlink-logo.gif";
 
@@ -37,4 +38,8 @@ export const AuthContextProvider = ({ children }) => {
       )}
     </AuthContext.Provider>
   );
+};
+
+AuthContextProvider.propTypes = {
+  children: PropTypes.node.isRequired,
 };

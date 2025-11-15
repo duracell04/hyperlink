@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-function Countdown(props) {
+function Countdown() {
     // Set the countdown date and time here
     const [countdownDate] = useState(new Date('10/05/2025 10:00:00').getTime());
     const [state, setState] = useState({

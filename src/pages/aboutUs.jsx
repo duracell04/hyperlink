@@ -20,7 +20,7 @@ const AboutUs = () => {
               <div className="col-md-12 mt30 mb-5">
                 <p className="desc text-center mb20">
                   The inception of Hyperlink emerged from a simple question:
-                  "What if one platform could grant access to all web tools?"
+                  &ldquo;What if one platform could grant access to all web tools?&rdquo;
                   Enrique George Zbinden, our founder, asked this while
                   navigating the complexities of managing multiple web tools
                   across several IT offices. From forgetting ongoing
@@ -52,7 +52,7 @@ const AboutUs = () => {
 
             {dataTeam.map((data) => {
               return (
-                <div className="col-md-12 mb-4">
+                <div key={data.id} className="col-md-12 mb-4">
                   <div className="project-info-form check-radio">
                     <div className="form-inner">
                       <div className="row">

@@ -2,7 +2,6 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import img from "../../assets/images/backgroup/bg_team_section.png";
-import shape1 from "../../assets/images/common/shape_4.svg";
 import { useState } from "react";
 
 Team.propTypes = {

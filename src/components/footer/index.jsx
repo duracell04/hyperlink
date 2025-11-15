@@ -4,7 +4,7 @@ import "./styles.scss";
 
 import { Link } from "react-router-dom";
 
-function Footer(props) {
+function Footer() {
   const [isVisible, setIsVisible] = useState(false);
 
   const scrollToTop = () => {

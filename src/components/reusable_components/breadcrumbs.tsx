@@ -1,7 +1,8 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
-export interface BreadcrumbsProps {
+interface BreadcrumbsProps {
   mainPage?: string;
   mainLink?: string;
   pageTitle: string;
@@ -13,7 +14,7 @@ const Breadcrumbs: React.FC<BreadcrumbsProps> = ({
   mainPage = "Home",
   mainLink = "/",
   pageTitle,
-  secondLink,
+  secondLink = "",
   innerPage,
 }) => {
   return (
@@ -77,6 +78,14 @@ const Breadcrumbs: React.FC<BreadcrumbsProps> = ({
       </div>
     </div>
   );
+};
+
+Breadcrumbs.propTypes = {
+  mainPage: PropTypes.string,
+  mainLink: PropTypes.string,
+  pageTitle: PropTypes.string.isRequired,
+  secondLink: PropTypes.string,
+  innerPage: PropTypes.string,
 };
 
 export default Breadcrumbs;

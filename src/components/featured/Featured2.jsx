@@ -18,9 +18,7 @@ function Featured2(props) {
               data-aos="fade-up"
               data-aos-duration="800"
             >
-              <h2 className="title">
-                It's all about Hyperlink
-              </h2>
+              <h2 className="title">It&rsquo;s all about Hyperlink</h2>
             </div>
           </div>
           <div className="col-md-12">

@@ -2,7 +2,7 @@ import React from "react";
 
 import { Link } from "react-router-dom";
 
-function ForgetPass(props) {
+function ForgetPass() {
   return (
     <div className="inner-page">
       <section className="page-title">

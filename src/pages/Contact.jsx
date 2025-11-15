@@ -1,6 +1,6 @@
 import React from "react";
 
-function Contact(props) {
+function Contact() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const form = e.target;

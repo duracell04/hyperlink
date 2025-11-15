@@ -27,8 +27,8 @@ function Banner() {
                         <p className="sub-title">
                           Hyperlink is an online platform that offers a curated
                           collection of web tools
-                          <br className="show-destop" /> to make users' lives
-                          easier
+                          <br className="show-destop" /> to make users&rsquo;
+                          lives easier
                         </p>
                         <div className="wrap-btn">
                           <Link to="/toolboxes" className="tf-button style2">

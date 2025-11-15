@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../configs/firebase";
 
-function Register(props) {
+function Register() {
   const navigate = useNavigate();
 
   const [email, setEmail] = useState("");
