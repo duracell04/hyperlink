@@ -1,18 +1,28 @@
-import { initializeApp } from 'firebase/app';
-import { getAuth } from 'firebase/auth';
+// Dummy Firebase replacement used in local dev so nothing talks to real backend.
+export const firebaseApp = null;
 
-const firebaseConfig = {
-  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
-  authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
-  projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
-  storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
-  messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
-  appId: process.env.REACT_APP_FIREBASE_APP_ID,
+export const auth = {
+  currentUser: null,
+  // Fake async methods that do nothing but keep promise signatures.
+  signInWithPopup: async () => null,
+  signOut: async () => null,
+  onAuthStateChanged: (_, onError) => {
+    if (typeof onError === 'function') onError(null);
+    return () => {};
+  },
 };
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
+export const db = {
+  collection: () => ({
+    get: async () => ({ docs: [] }),
+  }),
+};
 
-// Initialize Firebase Authentication and get a reference to the service
-export const auth = getAuth(app);
-export default app;
+export const storage = {
+  ref: () => ({
+    put: async () => null,
+    getDownloadURL: async () => null,
+  }),
+};
+
+export default firebaseApp;
