@@ -1,7 +1,7 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-import data from "../assets/fake-data/data-blog";
+import data from '../assets/fake-data/data-blog';
 
 function Blogs() {
   return (
@@ -28,14 +28,14 @@ function Blogs() {
                   </div>
                   <div className="content">
                     <Link to={`/blogs/${i}`} className="tag">
-                    {item.cate}
+                      {item.cate}
                     </Link>
                     <h5 className="title">
-                      <Link to={`/blogs/${i}`} >{item.heading}</Link>
+                      <Link to={`/blogs/${i}`}>{item.heading}</Link>
                     </h5>
                     <p>{item.text}</p>
                   </div>
-                  <Link to={`/blogs/${i}`}  className="tf-button style1">
+                  <Link to={`/blogs/${i}`} className="tf-button style1">
                     Read more
                   </Link>
                 </div>

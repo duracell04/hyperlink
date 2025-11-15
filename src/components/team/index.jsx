@@ -1,8 +1,8 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
-import img from "../../assets/images/backgroup/bg_team_section.png";
-import { useState } from "react";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
+import img from '../../assets/images/backgroup/bg_team_section.png';
+import { useState } from 'react';
 
 Team.propTypes = {
   data: PropTypes.array,
@@ -12,7 +12,7 @@ function Team(props) {
   const { data } = props;
 
   const [dataTitle] = useState({
-    title: "Meet the team",
+    title: 'Meet the team',
   });
   return (
     <section className="tf-section tf_team pt-5">

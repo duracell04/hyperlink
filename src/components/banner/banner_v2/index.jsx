@@ -1,10 +1,9 @@
-import React from "react";
-import "../styles.scss";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation } from "swiper";
-import { Link } from "react-router-dom";
-import Countdown from "../../countdown";
-
+import React from 'react';
+import '../styles.scss';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation } from 'swiper';
+import { Link } from 'react-router-dom';
+import Countdown from '../../countdown';
 
 function Banner() {
   return (

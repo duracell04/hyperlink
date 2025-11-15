@@ -1,15 +1,15 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
-import { Link } from "react-router-dom";
-import { signInWithEmailAndPassword } from "firebase/auth";
-import { useNavigate } from "react-router-dom";
-import { auth } from "../configs/firebase";
+import { Link } from 'react-router-dom';
+import { signInWithEmailAndPassword } from 'firebase/auth';
+import { useNavigate } from 'react-router-dom';
+import { auth } from '../configs/firebase';
 
 function Login() {
   const navigate = useNavigate();
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
 
   const onLogin = (e) => {
     e.preventDefault();
@@ -17,17 +17,18 @@ function Login() {
       .then((userCredential) => {
         // Signed in
         const user = userCredential.user;
-        navigate("/");
+        navigate('/');
         console.log(user);
       })
       .catch((error) => {
         const errorCode = error.code;
         const messages = {
-          "auth/wrong-password": "Incorrect email or password.",
-          "auth/user-not-found": "No account found with this email.",
-          "auth/too-many-requests": "Too many failed attempts. Try again later.",
+          'auth/wrong-password': 'Incorrect email or password.',
+          'auth/user-not-found': 'No account found with this email.',
+          'auth/too-many-requests':
+            'Too many failed attempts. Try again later.',
         };
-        setError(messages[errorCode] || "Failed to login. Please try again.");
+        setError(messages[errorCode] || 'Failed to login. Please try again.');
       });
   };
 
@@ -86,7 +87,7 @@ function Login() {
                   </button>
                 </div>
                 {error && (
-                  <p style={{ color: "red" }} className="error">
+                  <p style={{ color: 'red' }} className="error">
                     {error}
                   </p>
                 )}

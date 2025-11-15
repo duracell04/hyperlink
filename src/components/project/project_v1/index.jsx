@@ -1,8 +1,7 @@
-import React from "react";
+import React from 'react';
 
-import "../styles.scss";
-import ToolboxesIcons from "../../toolboxes/ToolboxesIcons";
-
+import '../styles.scss';
+import ToolboxesIcons from '../../toolboxes/ToolboxesIcons';
 
 function Toolboxes() {
   return (

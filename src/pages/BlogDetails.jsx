@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import Breadcrumbs from "../components/reusable_components/breadcrumbs";
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import Breadcrumbs from '../components/reusable_components/breadcrumbs';
 
 function BlogDetails() {
   const { id } = useParams();
@@ -8,7 +8,7 @@ function BlogDetails() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("/blog-posts.json")
+    fetch('/blog-posts.json')
       .then((res) => res.json())
       .then((data) => {
         const found = data.find((p) => String(p.id) === id);
@@ -21,7 +21,11 @@ function BlogDetails() {
   if (loading) {
     return (
       <div className="inner-page">
-        <Breadcrumbs mainLink="/blogs" mainPage="Blogs" pageTitle="Loading..." />
+        <Breadcrumbs
+          mainLink="/blogs"
+          mainPage="Blogs"
+          pageTitle="Loading..."
+        />
         <section className="tf-section tf-blog pt60">
           <div className="container">
             <p>Loading...</p>
@@ -34,7 +38,11 @@ function BlogDetails() {
   if (!post) {
     return (
       <div className="inner-page">
-        <Breadcrumbs mainLink="/blogs" mainPage="Blogs" pageTitle="Post not found" />
+        <Breadcrumbs
+          mainLink="/blogs"
+          mainPage="Blogs"
+          pageTitle="Post not found"
+        />
         <section className="tf-section tf-blog pt60">
           <div className="container">
             <h4>Post not found</h4>

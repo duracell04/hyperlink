@@ -4,10 +4,10 @@
   * Author: Themesflat
   * Author URI: http://www.themesflat.com
 */
-@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
 @font-face {
-  font-family: "resobot-bold";
-  src: url("../../assets/font/GeneralSans-Bold.otf");
+  font-family: 'resobot-bold';
+  src: url('../../assets/font/GeneralSans-Bold.otf');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -23,12 +23,12 @@ html {
 }
 
 body {
-  font-family: "Space Grotesk", sans-serif;
+  font-family: 'Space Grotesk', sans-serif;
   font-size: 15px;
   line-height: 21px;
   font-weight: 500;
-  color: #798DA3;
-  background: #09121D;
+  color: #798da3;
+  background: #09121d;
 }
 body.home2 .bg_body {
   position: relative;
@@ -43,16 +43,21 @@ body.home2 .bg_body .bg_h2 {
 body.home2 .bg_body .bg_h2 img {
   height: 100%;
   opacity: 0.5;
-  background: linear-gradient(180deg, #09121D 3.92%, rgba(9, 18, 29, 0) 36.79%, #09121D 83.98%);
+  background: linear-gradient(
+    180deg,
+    #09121d 3.92%,
+    rgba(9, 18, 29, 0) 36.79%,
+    #09121d 83.98%
+  );
   mix-blend-mode: luminosity;
 }
 
 p {
-  font-family: "Space Grotesk", sans-serif;
+  font-family: 'Space Grotesk', sans-serif;
   font-size: 15px;
   line-height: 21px;
   font-weight: 500;
-  color: #798DA3;
+  color: #798da3;
 }
 
 img {
@@ -67,7 +72,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "resobot-bold";
+  font-family: 'resobot-bold';
   font-weight: 700;
   color: #fff;
 }
@@ -170,11 +175,11 @@ h6,
 }
 
 .text {
-  font-family: "Space Grotesk", sans-serif;
+  font-family: 'Space Grotesk', sans-serif;
   font-size: 15px;
   line-height: 21px;
   font-weight: 500;
-  color: #798DA3;
+  color: #798da3;
 }
 
 .z-index {
@@ -193,7 +198,8 @@ h6,
   margin-left: -15px;
 }
 
-ul, li {
+ul,
+li {
   list-style-type: none;
   margin-bottom: 0;
   padding-left: 0;
@@ -382,11 +388,11 @@ a:hover {
 }
 
 .bg-st1 {
-  background: #1E2835 !important;
+  background: #1e2835 !important;
 }
 
 .bg-st2 {
-  background: #09121D !important;
+  background: #09121d !important;
 }
 
 .wrap-fx {
@@ -402,9 +408,9 @@ a:hover {
 }
 
 select {
-  background-color: #171F29;
+  background-color: #171f29;
   border: none;
-  font-family: "Space Grotesk", sans-serif;
+  font-family: 'Space Grotesk', sans-serif;
   outline: 0;
   box-shadow: none;
   font-size: 15px;
@@ -412,7 +418,7 @@ select {
   border-radius: 0;
   height: 46px;
   width: 100%;
-  color: #798DA3;
+  color: #798da3;
   padding: 12px 14px;
   border-radius: 8px;
   display: flex;
@@ -421,22 +427,22 @@ select {
 }
 
 textarea,
-input[type=text],
-input[type=password],
-input[type=datetime],
-input[type=datetime-local],
-input[type=date],
-input[type=month],
-input[type=time],
-input[type=week],
-input[type=number],
-input[type=email],
-input[type=url],
-input[type=search],
-input[type=tel],
-input[type=color] {
+input[type='text'],
+input[type='password'],
+input[type='datetime'],
+input[type='datetime-local'],
+input[type='date'],
+input[type='month'],
+input[type='time'],
+input[type='week'],
+input[type='number'],
+input[type='email'],
+input[type='url'],
+input[type='search'],
+input[type='tel'],
+input[type='color'] {
   border: none;
-  font-family: "Space Grotesk", sans-serif;
+  font-family: 'Space Grotesk', sans-serif;
   outline: 0;
   box-shadow: none;
   font-size: 15px;
@@ -444,8 +450,8 @@ input[type=color] {
   border-radius: 0;
   height: 46px;
   width: 100%;
-  background: #1E2835;
-  color: #798DA3;
+  background: #1e2835;
+  color: #798da3;
   padding: 12px 14px;
   border-radius: 8px;
   display: flex;
@@ -453,34 +459,64 @@ input[type=color] {
   justify-content: flex-start;
 }
 
-textarea::-moz-placeholder, input[type=text]::-moz-placeholder, input[type=email]::-moz-placeholder, input[type=password]::-moz-placeholder, input[type=datetime]::-moz-placeholder, input[type=datetime-local]::-moz-placeholder, input[type=date]::-moz-placeholder, input[type=month]::-moz-placeholder, input[type=time]::-moz-placeholder, input[type=week]::-moz-placeholder, input[type=number]::-moz-placeholder, input[type=email]::-moz-placeholder, input[type=url]::-moz-placeholder, input[type=search]::-moz-placeholder, input[type=tel]::-moz-placeholder, input[type=color]::-moz-placeholder {
-  font-family: "Space Grotesk", sans-serif;
-  color: #798DA3;
+textarea::-moz-placeholder,
+input[type='text']::-moz-placeholder,
+input[type='email']::-moz-placeholder,
+input[type='password']::-moz-placeholder,
+input[type='datetime']::-moz-placeholder,
+input[type='datetime-local']::-moz-placeholder,
+input[type='date']::-moz-placeholder,
+input[type='month']::-moz-placeholder,
+input[type='time']::-moz-placeholder,
+input[type='week']::-moz-placeholder,
+input[type='number']::-moz-placeholder,
+input[type='email']::-moz-placeholder,
+input[type='url']::-moz-placeholder,
+input[type='search']::-moz-placeholder,
+input[type='tel']::-moz-placeholder,
+input[type='color']::-moz-placeholder {
+  font-family: 'Space Grotesk', sans-serif;
+  color: #798da3;
 }
 
-textarea:-ms-input-placeholder, input[type=text]:-ms-input-placeholder, input[type=email]:-ms-input-placeholder, input[type=password]:-ms-input-placeholder, input[type=datetime]:-ms-input-placeholder, input[type=datetime-local]:-ms-input-placeholder, input[type=date]:-ms-input-placeholder, input[type=month]:-ms-input-placeholder, input[type=time]:-ms-input-placeholder, input[type=week]:-ms-input-placeholder, input[type=number]:-ms-input-placeholder, input[type=email]:-ms-input-placeholder, input[type=url]:-ms-input-placeholder, input[type=search]:-ms-input-placeholder, input[type=tel]:-ms-input-placeholder, input[type=color]:-ms-input-placeholder {
-  font-family: "Space Grotesk", sans-serif;
-  color: #798DA3;
+textarea:-ms-input-placeholder,
+input[type='text']:-ms-input-placeholder,
+input[type='email']:-ms-input-placeholder,
+input[type='password']:-ms-input-placeholder,
+input[type='datetime']:-ms-input-placeholder,
+input[type='datetime-local']:-ms-input-placeholder,
+input[type='date']:-ms-input-placeholder,
+input[type='month']:-ms-input-placeholder,
+input[type='time']:-ms-input-placeholder,
+input[type='week']:-ms-input-placeholder,
+input[type='number']:-ms-input-placeholder,
+input[type='email']:-ms-input-placeholder,
+input[type='url']:-ms-input-placeholder,
+input[type='search']:-ms-input-placeholder,
+input[type='tel']:-ms-input-placeholder,
+input[type='color']:-ms-input-placeholder {
+  font-family: 'Space Grotesk', sans-serif;
+  color: #798da3;
 }
 
 textarea::placeholder,
-input[type=text]::placeholder,
-input[type=email]::placeholder,
-input[type=password]::placeholder,
-input[type=datetime]::placeholder,
-input[type=datetime-local]::placeholder,
-input[type=date]::placeholder,
-input[type=month]::placeholder,
-input[type=time]::placeholder,
-input[type=week]::placeholder,
-input[type=number]::placeholder,
-input[type=email]::placeholder,
-input[type=url]::placeholder,
-input[type=search]::placeholder,
-input[type=tel]::placeholder,
-input[type=color]::placeholder {
-  font-family: "Space Grotesk", sans-serif;
-  color: #798DA3;
+input[type='text']::placeholder,
+input[type='email']::placeholder,
+input[type='password']::placeholder,
+input[type='datetime']::placeholder,
+input[type='datetime-local']::placeholder,
+input[type='date']::placeholder,
+input[type='month']::placeholder,
+input[type='time']::placeholder,
+input[type='week']::placeholder,
+input[type='number']::placeholder,
+input[type='email']::placeholder,
+input[type='url']::placeholder,
+input[type='search']::placeholder,
+input[type='tel']::placeholder,
+input[type='color']::placeholder {
+  font-family: 'Space Grotesk', sans-serif;
+  color: #798da3;
 }
 
 form button {
@@ -534,7 +570,7 @@ form button {
 
 #scroll-top:before,
 #scroll-top:after {
-  content: "";
+  content: '';
   position: absolute;
   top: 0;
   left: 0;
@@ -545,12 +581,12 @@ form button {
 
 #scroll-top:before {
   z-index: -1;
-  background: #86FF00;
+  background: #86ff00;
 }
 
 #scroll-top:after {
-  content: "\f077";
-  font-family: "Font Awesome 5 Pro";
+  content: '\f077';
+  font-family: 'Font Awesome 5 Pro';
   font-size: 18px;
   color: #000000;
   font-weight: 600;
@@ -594,10 +630,10 @@ form button {
 .loading-effect-2 > span,
 .loading-effect-2 > span:before,
 .loading-effect-2 > span:after {
-  content: "";
+  content: '';
   display: block;
   border-radius: 50%;
-  border: 2px solid #86FF00;
+  border: 2px solid #86ff00;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -641,4 +677,4 @@ form button {
   to {
     transform: rotate(360deg);
   }
-}/*# sourceMappingURL=App.css.map */
+} /*# sourceMappingURL=App.css.map */

@@ -1,16 +1,16 @@
-import React, { useEffect } from "react";
-import { Link, useParams, useNavigate } from "react-router-dom";
+import React, { useEffect } from 'react';
+import { Link, useParams, useNavigate } from 'react-router-dom';
 
-import data from "../assets/fake-data/data-project";
-import Breadcrumbs from "../components/reusable_components/breadcrumbs";
+import data from '../assets/fake-data/data-project';
+import Breadcrumbs from '../components/reusable_components/breadcrumbs';
 
 const toolboxesList = [
-  "scholar",
-  "secretary",
-  "designer",
-  "marketing",
-  "start-up",
-  "custom",
+  'scholar',
+  'secretary',
+  'designer',
+  'marketing',
+  'start-up',
+  'custom',
 ];
 
 const InnerToolbox = () => {
@@ -19,7 +19,7 @@ const InnerToolbox = () => {
 
   useEffect(() => {
     if (!toolboxesList.includes(pageTitle)) {
-      navigate("/");
+      navigate('/');
     }
   }, [pageTitle, navigate]);
 
@@ -50,9 +50,13 @@ const InnerToolbox = () => {
                   >
                     <div className="header_project">
                       <div className="image">
-                        <img className="mask" src={item.img} alt={item.actualName} />
+                        <img
+                          className="mask"
+                          src={item.img}
+                          alt={item.actualName}
+                        />
                         <div className="shape">
-                          <img src={""} alt="Decorative shape" />
+                          <img src={''} alt="Decorative shape" />
                         </div>
                       </div>
                       <h5 className="heading">

@@ -1,6 +1,6 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import dataTeam from "../assets/fake-data/data-team";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import dataTeam from '../assets/fake-data/data-team';
 
 const AboutUs = () => {
   return (
@@ -20,10 +20,10 @@ const AboutUs = () => {
               <div className="col-md-12 mt30 mb-5">
                 <p className="desc text-center mb20">
                   The inception of Hyperlink emerged from a simple question:
-                  &ldquo;What if one platform could grant access to all web tools?&rdquo;
-                  Enrique George Zbinden, our founder, asked this while
-                  navigating the complexities of managing multiple web tools
-                  across several IT offices. From forgetting ongoing
+                  &ldquo;What if one platform could grant access to all web
+                  tools?&rdquo; Enrique George Zbinden, our founder, asked this
+                  while navigating the complexities of managing multiple web
+                  tools across several IT offices. From forgetting ongoing
                   subscriptions to managing numerous passwords and emails,
                   George recognized a universal problem within the digital
                   workforce. This realization led to the birth of Hyperlink, a

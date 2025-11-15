@@ -1,16 +1,16 @@
 @font-face {
-    font-family: 'risebot';
-    src:  url('./risebot.eot');
-    src:  url('./risebot.eot') format('embedded-opentype'),
-      url('./risebot.ttf') format('truetype'),
-      url('./risebot.woff') format('woff'),
-      url('./risebot.svg') format('svg');
-    font-weight: normal;
-    font-style: normal;
-    font-display: block;
-  }
-  
-[class^="icon-"], [class*=" icon-"] {
+  font-family: 'risebot';
+  src: url('./risebot.eot');
+  src: url('./risebot.eot') format('embedded-opentype'),
+    url('./risebot.ttf') format('truetype'),
+    url('./risebot.woff') format('woff'), url('./risebot.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^='icon-'],
+[class*=' icon-'] {
   font-family: 'risebot' !important;
   speak: never;
   font-style: normal;
@@ -24,14 +24,14 @@
 }
 
 .icon-check:before {
-  content: "\e903";
+  content: '\e903';
 }
 .icon-plus:before {
-  content: "\e900";
+  content: '\e900';
 }
 .icon-minus:before {
-  content: "\e901";
+  content: '\e901';
 }
 .icon-Icon:before {
-  content: "\e902";
+  content: '\e902';
 }

@@ -1,21 +1,21 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect, useContext } from 'react';
 
-import { Link, NavLink } from "react-router-dom";
-import menus from "../../pages/menu";
-import "./styles.scss";
-import Dropdown from "react-bootstrap/Dropdown";
-import logo from "../../assets/images/logo/hyperlink-removebg.png";
-import { useNavigate } from "react-router-dom";
-import { signOut } from "firebase/auth";
-import { auth } from "../../configs/firebase";
-import { AuthContext } from "../../context/authContext";
+import { Link, NavLink } from 'react-router-dom';
+import menus from '../../pages/menu';
+import './styles.scss';
+import Dropdown from 'react-bootstrap/Dropdown';
+import logo from '../../assets/images/logo/hyperlink-removebg.png';
+import { useNavigate } from 'react-router-dom';
+import { signOut } from 'firebase/auth';
+import { auth } from '../../configs/firebase';
+import { AuthContext } from '../../context/authContext';
 
 const Header = () => {
   const { currentUser } = useContext(AuthContext);
   const navigate = useNavigate();
   const [scroll, setScroll] = useState(false);
   useEffect(() => {
-    window.addEventListener("scroll", () => {
+    window.addEventListener('scroll', () => {
       setScroll(window.scrollY > 300);
     });
     return () => {
@@ -27,8 +27,8 @@ const Header = () => {
     signOut(auth)
       .then(() => {
         // Sign-out successful.
-        navigate("/login");
-        console.log("Signed out successfully");
+        navigate('/login');
+        console.log('Signed out successfully');
       })
       .catch(() => {
         // An error happened.
@@ -47,7 +47,7 @@ const Header = () => {
   };
 
   return (
-    <header id="header_main" className={`header ${scroll ? "is-fixed" : ""}`}>
+    <header id="header_main" className={`header ${scroll ? 'is-fixed' : ''}`}>
       <div className="container">
         <div id="site-header-inner">
           <div className="header__logo">
@@ -57,7 +57,7 @@ const Header = () => {
           </div>
           <nav
             id="main-nav"
-            className={`main-nav ${menuActive ? "active" : ""}`}
+            className={`main-nav ${menuActive ? 'active' : ''}`}
           >
             <ul id="menu-primary-menu" className="menu">
               {menus.map((data, idx) => (
@@ -65,8 +65,8 @@ const Header = () => {
                   key={idx}
                   onClick={() => handleDropdown(idx)}
                   className={`menu-item ${
-                    data.namesub ? "menu-item-has-children" : ""
-                  } ${activeIndex === idx ? "active" : ""}`}
+                    data.namesub ? 'menu-item-has-children' : ''
+                  } ${activeIndex === idx ? 'active' : ''}`}
                 >
                   <Link to={data.links}>{data.name}</Link>
                   {data.namesub && (
@@ -88,7 +88,7 @@ const Header = () => {
           <Dropdown className="d-inline ms-auto">
             <Dropdown.Toggle
               id="dropdown-autoclose-true"
-              style={{ background: "none", border: "none", boxShadow: "none" }}
+              style={{ background: 'none', border: 'none', boxShadow: 'none' }}
             >
               <span className="fas fa-lg fa-user"></span>
             </Dropdown.Toggle>
@@ -96,7 +96,9 @@ const Header = () => {
             <Dropdown.Menu>
               {currentUser ? (
                 <>
-                  <Dropdown.Item href="/dashboard">User dashboard</Dropdown.Item>
+                  <Dropdown.Item href="/dashboard">
+                    User dashboard
+                  </Dropdown.Item>
                   <Dropdown.Item onClick={handleLogout}>Log out</Dropdown.Item>
                 </>
               ) : (
@@ -106,7 +108,7 @@ const Header = () => {
           </Dropdown>
 
           <div
-            className={`mobile-button ${menuActive ? "active" : ""}`}
+            className={`mobile-button ${menuActive ? 'active' : ''}`}
             onClick={handleMenuActive}
           >
             <span></span>

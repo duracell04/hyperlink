@@ -1,7 +1,7 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
-import { useState } from "react";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
+import { useState } from 'react';
 
 Partner.propTypes = {
   data: PropTypes.array,
@@ -11,9 +11,9 @@ function Partner(props) {
   const { data } = props;
 
   const [dataTitle] = useState({
-    title: "Our Partners",
+    title: 'Our Partners',
   });
-  
+
   return (
     <section className="tf-section tf_partner">
       <div className="container">

@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
-import linkedIn from "./linkedin-svgrepo-com.svg";
-import "./styles.scss";
+import React, { useEffect, useState } from 'react';
+import linkedIn from './linkedin-svgrepo-com.svg';
+import './styles.scss';
 
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
 function Footer() {
   const [isVisible, setIsVisible] = useState(false);
@@ -10,7 +10,7 @@ function Footer() {
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
-      behavior: "smooth",
+      behavior: 'smooth',
     });
   };
 
@@ -23,9 +23,9 @@ function Footer() {
       }
     };
 
-    window.addEventListener("scroll", toggleVisibility);
+    window.addEventListener('scroll', toggleVisibility);
 
-    return () => window.removeEventListener("scroll", toggleVisibility);
+    return () => window.removeEventListener('scroll', toggleVisibility);
   }, []);
   return (
     <footer id="footer">
@@ -35,7 +35,7 @@ function Footer() {
             <div className="footer-logo">
               <div className="logo_footer">
                 <img
-                  src={require("../../assets/images/logo/hyperlink-removebg.png")}
+                  src={require('../../assets/images/logo/hyperlink-removebg.png')}
                   alt=""
                   width="80px"
                 />
@@ -112,7 +112,7 @@ function Footer() {
         <div className="container">
           <div className="wrap-fx">
             <div className="Copyright">
-              Copyright © 2023. Designed by{" "}
+              Copyright © 2023. Designed by{' '}
               <a
                 href="https://www.linkedin.com/in/tornike-nizharadze-7832a81a0/"
                 target="_blank"

@@ -1,16 +1,16 @@
-import React from "react";
-import Breadcrumbs from "../components/reusable_components/breadcrumbs";
+import React from 'react';
+import Breadcrumbs from '../components/reusable_components/breadcrumbs';
 import {
   dataRoadmap,
   dataRoadmapMobile,
-} from "../assets/fake-data/data-roadmap";
+} from '../assets/fake-data/data-roadmap';
 
-import icon from "../assets/images/common/down.svg";
+import icon from '../assets/images/common/down.svg';
 
 function Roadmap() {
   return (
     <div className="inner-page">
-      <Breadcrumbs pageTitle={"Roadmap"} />
+      <Breadcrumbs pageTitle={'Roadmap'} />
 
       <section className="tf-section roadmap pt-5">
         <div className="container">

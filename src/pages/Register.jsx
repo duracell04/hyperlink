@@ -1,34 +1,34 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
-import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
-import { createUserWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../configs/firebase";
+import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { auth } from '../configs/firebase';
 
 function Register() {
   const navigate = useNavigate();
 
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
-  const [error, setError] = useState("");
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+  const [error, setError] = useState('');
 
   const onSubmit = async (e) => {
     e.preventDefault();
 
     if (password !== confirmPassword) {
-      setError("Passwords do not match");
+      setError('Passwords do not match');
       return;
     }
 
-    setError("");
+    setError('');
 
     await createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         // Signed in
         const user = userCredential.user;
         console.log(user);
-        navigate("/login");
+        navigate('/login');
         // ...
       })
       .catch((error) => {
@@ -90,7 +90,7 @@ function Register() {
                       />
                     </fieldset>
                     {error && (
-                      <p style={{ color: "red" }} className="error">
+                      <p style={{ color: 'red' }} className="error">
                         {error}
                       </p>
                     )}

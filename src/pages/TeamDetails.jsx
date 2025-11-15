@@ -1,7 +1,7 @@
-import React from "react";
-import UserDetails from "../components/user_dashboard/userDetails";
-import "bootstrap/dist/js/bootstrap.bundle.min.js";
-import { Chart } from "../components/token/Chart";
+import React from 'react';
+import UserDetails from '../components/user_dashboard/userDetails';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+import { Chart } from '../components/token/Chart';
 
 function UserDashboard() {
   return (
@@ -101,7 +101,7 @@ function UserDashboard() {
                         <ul className="describe_chart d-flex flex-wrap">
                           <li>
                             <img
-                              src={require("../assets/images/chart/color_1.png")}
+                              src={require('../assets/images/chart/color_1.png')}
                               alt="Farming Pool segment"
                             />
                             <div className="desc">
@@ -111,7 +111,7 @@ function UserDashboard() {
                           </li>
                           <li>
                             <img
-                              src={require("../assets/images/chart/color_2.png")}
+                              src={require('../assets/images/chart/color_2.png')}
                               alt="Staking segment"
                             />
                             <div className="desc">
@@ -121,7 +121,7 @@ function UserDashboard() {
                           </li>
                           <li>
                             <img
-                              src={require("../assets/images/chart/color_3.png")}
+                              src={require('../assets/images/chart/color_3.png')}
                               alt="Ecosystem segment"
                             />
                             <div className="desc">
@@ -131,7 +131,7 @@ function UserDashboard() {
                           </li>
                           <li>
                             <img
-                              src={require("../assets/images/chart/color_4.png")}
+                              src={require('../assets/images/chart/color_4.png')}
                               alt="Advisor segment"
                             />
                             <div className="desc">
@@ -141,7 +141,7 @@ function UserDashboard() {
                           </li>
                           <li>
                             <img
-                              src={require("../assets/images/chart/color_5.png")}
+                              src={require('../assets/images/chart/color_5.png')}
                               alt="Private Sale segment"
                             />
                             <div className="desc">
@@ -151,7 +151,7 @@ function UserDashboard() {
                           </li>
                           <li>
                             <img
-                              src={require("../assets/images/chart/color_6.png")}
+                              src={require('../assets/images/chart/color_6.png')}
                               alt="Liquidity segment"
                             />
                             <div className="desc">
@@ -161,7 +161,7 @@ function UserDashboard() {
                           </li>
                           <li>
                             <img
-                              src={require("../assets/images/chart/color_7.png")}
+                              src={require('../assets/images/chart/color_7.png')}
                               alt="Marketing segment"
                             />
                             <div className="desc">
@@ -171,7 +171,7 @@ function UserDashboard() {
                           </li>
                           <li>
                             <img
-                              src={require("../assets/images/chart/color_8.png")}
+                              src={require('../assets/images/chart/color_8.png')}
                               alt="Team segment"
                             />
                             <div className="desc">

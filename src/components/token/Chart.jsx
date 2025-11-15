@@ -16,7 +16,7 @@ export const data = {
         '#CDBDF3',
         '#E89F8E',
         '#6574EB',
-        '#ACE5F2'
+        '#ACE5F2',
       ],
       borderColor: [
         '#AFC5FF',
@@ -25,7 +25,7 @@ export const data = {
         '#CDBDF3',
         '#E89F8E',
         '#6574EB',
-        '#ACE5F2'
+        '#ACE5F2',
       ],
       borderWidth: 1,
     },

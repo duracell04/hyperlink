@@ -1,12 +1,15 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 const UserDetails = () => {
   return (
     <div className="team-details">
       <div className="image_wrapper">
         <div className="image">
-          <img src={require("../../../assets/images/common/Giorgi.jpeg")} alt="" />
+          <img
+            src={require('../../../assets/images/common/Giorgi.jpeg')}
+            alt=""
+          />
         </div>
         <ul className="social">
           <li>
@@ -70,12 +73,8 @@ const UserDetails = () => {
       <div className="content">
         <h5 className="name">Giorgi Zbinden</h5>
         <p className="position">Founder/CEO</p>
-        <p>
-          Email: enriquezbinden04@gmail.com
-        </p>
-        <p>
-          Address: Limmatstrasse 310, 8005 Zürich, Switzerland
-        </p>
+        <p>Email: enriquezbinden04@gmail.com</p>
+        <p>Address: Limmatstrasse 310, 8005 Zürich, Switzerland</p>
         <p>
           Giorgi oversees product strategy and partnerships, ensuring smooth
           collaboration across the team.
@@ -83,14 +82,11 @@ const UserDetails = () => {
         <div className="spacing"></div>
         <div className="box">
           <h6 className="title">Cards:</h6>
-          <ul style={{listStyleType: "none"}}>
+          <ul style={{ listStyleType: 'none' }}>
             <li>
-              <span>
-                **** **** **** 4172 - mastercard
-              </span>
+              <span>**** **** **** 4172 - mastercard</span>
             </li>
             <li>
-
               <span>**** **** **** 1733 - visa</span>
             </li>
           </ul>

@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 function Contact() {
   const handleSubmit = async (e) => {
@@ -12,18 +12,18 @@ function Contact() {
     };
 
     try {
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data),
       });
       if (!response.ok) {
-        throw new Error("Network response was not ok");
+        throw new Error('Network response was not ok');
       }
-      console.log("Message sent");
+      console.log('Message sent');
       form.reset();
     } catch (error) {
-      console.error("Failed to send message", error);
+      console.error('Failed to send message', error);
     }
   };
 

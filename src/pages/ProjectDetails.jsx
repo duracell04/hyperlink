@@ -1,8 +1,8 @@
-import React from "react";
-import { useParams } from "react-router-dom";
+import React from 'react';
+import { useParams } from 'react-router-dom';
 
-import { Link } from "react-router-dom";
-import Breadcrumbs from "../components/reusable_components/breadcrumbs";
+import { Link } from 'react-router-dom';
+import Breadcrumbs from '../components/reusable_components/breadcrumbs';
 
 function ProjectDetails() {
   const { id: toolboxType, toolid } = useParams();
@@ -12,7 +12,7 @@ function ProjectDetails() {
       <Breadcrumbs
         pageTitle={toolboxType}
         innerPage={toolid}
-        secondLink={"toolboxes"}
+        secondLink={'toolboxes'}
       />
 
       <section className="tf-section details mt-5">
@@ -30,11 +30,11 @@ function ProjectDetails() {
                   <div className="image">
                     <img
                       className="mask"
-                      src={require("../assets/images/common/canva.webp")}
+                      src={require('../assets/images/common/canva.webp')}
                       alt="Screenshot of Canva tool"
                     />
                     <div className="shape">
-                      <img src={""} alt="Decorative shape" />
+                      <img src={''} alt="Decorative shape" />
                     </div>
                   </div>
                   <div className="content">
@@ -64,14 +64,14 @@ function ProjectDetails() {
             >
               <div className="prodect-content">
                 <h4 className="heading mb10">About Project</h4>
-                  <p>
-                    Hyperlink centralizes all your web tools so you can manage
-                    credentials and subscriptions from a single dashboard.
-                  </p>
-                  <p>
-                    The platform syncs data securely and provides detailed
-                    reports on efficiency and spending across your team.
-                  </p>
+                <p>
+                  Hyperlink centralizes all your web tools so you can manage
+                  credentials and subscriptions from a single dashboard.
+                </p>
+                <p>
+                  The platform syncs data securely and provides detailed reports
+                  on efficiency and spending across your team.
+                </p>
                 <div className="spacing"></div>
                 <ul className="social justify-content-start mb30">
                   <li>
@@ -129,10 +129,14 @@ function ProjectDetails() {
                       <span>Automated usage tracking and cost analytics.</span>
                     </li>
                     <li>
-                      <span>Secure file transfers between connected services.</span>
+                      <span>
+                        Secure file transfers between connected services.
+                      </span>
                     </li>
                     <li>
-                      <span>Smart recommendations to optimize your tool stack.</span>
+                      <span>
+                        Smart recommendations to optimize your tool stack.
+                      </span>
                     </li>
                   </ul>
                 </div>

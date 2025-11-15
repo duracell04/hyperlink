@@ -13,7 +13,6 @@ jest.mock('firebase/auth', () => {
   };
 });
 
-
 import Login from '../Login';
 
 test('renders login form', () => {
@@ -39,7 +38,10 @@ test('shows error message for wrong password', async () => {
     </MemoryRouter>
   );
 
-  await userEvent.type(screen.getByPlaceholderText('Your email'), 'user@example.com');
+  await userEvent.type(
+    screen.getByPlaceholderText('Your email'),
+    'user@example.com'
+  );
   await userEvent.type(screen.getByPlaceholderText('Your password'), 'badpass');
   userEvent.click(screen.getByRole('button', { name: /Login/i }));
 
