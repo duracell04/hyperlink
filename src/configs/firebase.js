@@ -8,7 +8,7 @@ export const auth = {
   signOut: async () => null,
   onAuthStateChanged: (_, onError) => {
     if (typeof onError === 'function') onError(null);
-    return () => {};
+    return () => null;
   },
 };
 
