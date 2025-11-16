@@ -108,7 +108,7 @@ export function LeakReportMock() {
             </div>
           </div>
 
-          <ToolboxesMock />
+          <ToolboxesMock condensed />
         </>
       )}
     </section>

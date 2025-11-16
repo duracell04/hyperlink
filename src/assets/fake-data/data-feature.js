@@ -8,33 +8,33 @@ const dataFeatured = [
   {
     id: 1,
     img: img1,
-    title: 'User Empowerment',
-    text: 'Gain control over digital tools. Streamline your workflow, enhance efficiency.',
+    title: 'Editorial research',
+    text: 'Every toolbox is written by an operator, not scraped, so you understand the why behind each vendor.',
   },
   {
     id: 2,
     img: img2,
-    title: 'Tailored Solutions',
-    text: 'Discover SaaS solutions curated for your specific business needs.',
+    title: 'Pricing clarity',
+    text: 'Transparent cost notes and plan recommendations to speed up approval cycles.',
   },
   {
     id: 3,
     img: img3,
-    title: 'Vibrant Community',
-    text: 'Join a dynamic network of users and creators for interactive collaboration.',
+    title: 'Community signal',
+    text: 'Insights pulled from our partner network so you see what similar teams ship with.',
   },
   {
     id: 4,
     img: img4,
-    title: 'Investment Potential',
-    text: 'Hyperlink, a high-growth, scalable venture appealing to savvy tech investors.',
+    title: 'Calm governance',
+    text: 'Guardrails for legal, IT, and finance keep procurement compliant without slowing builders down.',
   },
 
   {
     id: 5,
     img: img5,
-    title: 'Revolutionary Approach',
-    text: 'Leverage the power of AI and blockchain to discover and access web tools.',
+    title: 'AI + human blend',
+    text: 'Automation handles the busywork; humans ensure every insight feels on-brand for Hyperlink.',
   },
 ];
 

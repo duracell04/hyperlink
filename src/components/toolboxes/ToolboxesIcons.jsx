@@ -29,71 +29,61 @@ function ToolboxesIcons() {
           <div className="col-md-12">
             <div className="container_inner">
               {loading ? (
-                <p style={{ color: '#e6eefc', opacity: 0.8 }}>
-                  Loading toolboxes...
-                </p>
+                <div className="toolbox-cards__loading">
+                  <span className="spinner" aria-hidden="true" />
+                  <p>Loading curated toolboxes...</p>
+                </div>
               ) : (
                 <Swiper
-                  className="slider-13"
+                  className="slider-13 toolbox-cards-slider"
                   modules={[Navigation]}
-                  spaceBetween={30}
+                  navigation
+                  spaceBetween={32}
                   breakpoints={{
                     0: { slidesPerView: 1 },
-                    600: { slidesPerView: 2 },
-                    900: { slidesPerView: 3 },
+                    768: { slidesPerView: 2 },
+                    1200: { slidesPerView: 3 },
                   }}
                 >
                   {toolboxes.map((box) => (
                     <SwiperSlide key={box.id}>
-                      <div className="icon-box-style4">
-                        <Link to={`/toolboxes/${box.id}`}>
-                          <div className="icon-wrapper" style={{ gap: '0.65rem' }}>
-                            <span
-                              style={{
-                                fontSize: '0.7rem',
-                                textTransform: 'uppercase',
-                                letterSpacing: '0.08em',
-                                opacity: 0.75,
-                              }}
-                            >
-                              {box.tags.join(' · ')}
-                            </span>
-                            <h6>{box.name}</h6>
-                            <p style={{ minHeight: '72px', opacity: 0.85 }}>
-                              {box.tagline}
-                            </p>
-                            <ul
-                              style={{
-                                listStyle: 'none',
-                                padding: 0,
-                                margin: '0 0 0.75rem',
-                                display: 'flex',
-                                flexDirection: 'column',
-                                gap: '0.35rem',
-                              }}
-                            >
-                              {box.tools.slice(0, 3).map((tool) => (
-                                <li
-                                  key={tool.id}
-                                  style={{
-                                    display: 'flex',
-                                    justifyContent: 'space-between',
-                                    fontSize: '0.9rem',
-                                  }}
-                                >
-                                  <span>{tool.name}</span>
-                                  <span style={{ opacity: 0.7 }}>
+                      <article className="toolbox-card">
+                        <Link
+                          to={`/toolboxes/${box.id}`}
+                          className="toolbox-card__inner"
+                          aria-label={`View ${box.name} toolbox`}
+                        >
+                          <p className="toolbox-card__tags">
+                            {box.tags.join(' | ')}
+                          </p>
+                          <h3 className="toolbox-card__title">{box.name}</h3>
+                          <p className="toolbox-card__tagline">{box.tagline}</p>
+                          <p className="toolbox-card__ideal">
+                            <strong>Ideal for:</strong> {box.idealUser}
+                          </p>
+                          <ul className="toolbox-card__tool-list">
+                            {box.tools.slice(0, 3).map((tool) => (
+                              <li key={tool.id}>
+                                <div>
+                                  <span className="tool-name">{tool.name}</span>
+                                  <span className="tool-category">
                                     {tool.category}
                                   </span>
-                                </li>
-                              ))}
-                            </ul>
-                            <span className="tf-button style2">
-                              Explore stack
+                                </div>
+                                <span className="tool-cost">
+                                  {tool.approxMonthlyCost}
+                                </span>
+                              </li>
+                            ))}
+                          </ul>
+                          <div className="toolbox-card__cta">
+                            <span>{box.tools.length} tools inside</span>
+                            <span className="cta-link">
+                              View stack <span aria-hidden="true">-&gt;</span>
                             </span>
                           </div>
                         </Link>
-                      </div>
+                      </article>
                     </SwiperSlide>
                   ))}
                 </Swiper>

@@ -3,6 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 
 import Breadcrumbs from '../components/reusable_components/breadcrumbs';
 import { fetchToolboxesMock } from '../services/mockApi';
+import './toolboxes.scss';
 
 function ProjectDetails() {
   const { id: toolboxType, toolid } = useParams();
@@ -33,12 +34,10 @@ function ProjectDetails() {
 
   if (loading || !toolbox || !tool) {
     return (
-      <div className="inner-page project-grid-5">
-        <section className="tf-section details mt-5">
+      <div className="toolbox-detail-page">
+        <section className="toolbox-detail-hero">
           <div className="container">
-            <p style={{ color: '#fff', opacity: 0.8 }}>
-              Loading tool details...
-            </p>
+            <p>Loading tool...</p>
           </div>
         </section>
       </div>
@@ -46,7 +45,7 @@ function ProjectDetails() {
   }
 
   return (
-    <div className="inner-page project-grid-5">
+    <div className="toolbox-detail-page">
       <Breadcrumbs
         pageTitle={toolbox.id}
         pageTitleLabel={toolbox.name}
@@ -55,85 +54,63 @@ function ProjectDetails() {
         secondLink="toolboxes"
       />
 
-      <section className="tf-section details mt-5">
+      <section className="toolbox-detail-hero">
         <div className="container">
-          <div className="row">
-            <article
-              className="article"
-              data-aos="fade-right"
-              data-aos-duration="1200"
-              data-aos-delay="200"
-            >
-              <div className="project_detail project-box-style5">
-                <span className="boder"></span>
-                <div className="img-box">
-                  <div className="image">
-                    <div
-                      className="mask"
-                      style={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        fontSize: '2rem',
-                        fontWeight: 600,
-                        background: 'rgba(148,163,184,0.1)',
-                        color: '#e6eefc',
-                      }}
-                    >
-                      {tool.name.charAt(0)}
-                    </div>
-                  </div>
-                  <div className="content">
-                    <h5 className="heading">{tool.name}</h5>
-                    <p className="desc">{tool.category}</p>
-                  </div>
-                </div>
-                <div className="content-inner">
-                  <p style={{ fontSize: '1rem' }}>{tool.shortDescription}</p>
-                  <p style={{ opacity: 0.75 }}>
-                    <strong>Recommended for:</strong> {tool.recommendedFor}
-                  </p>
-                  <div className="wrap-btn my-2">
-                    <a
-                      className="tf-button w-100 style2"
-                      href={tool.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      Visit {tool.name}
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </article>
-            <aside
-              className="sidebar"
-              data-aos="fade-left"
-              data-aos-duration="1200"
-              data-aos-delay="200"
-            >
-              <div className="prodect-content">
-                <h4 className="heading mb10">Tool snapshot</h4>
-                <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
-                  <li style={{ marginBottom: '0.75rem' }}>
-                    <strong>Part of toolbox:</strong>
-                    <div>{toolbox.name}</div>
-                  </li>
-                  <li style={{ marginBottom: '0.75rem' }}>
-                    <strong>Plan:</strong>
-                    <div>{tool.typicalPlan}</div>
-                  </li>
-                  <li style={{ marginBottom: '0.75rem' }}>
-                    <strong>Approx. monthly cost:</strong>
-                    <div>{tool.approxMonthlyCost}</div>
-                  </li>
-                  <li>
-                    <strong>Tags:</strong>
-                    <div>{toolbox.tags.join(', ')}</div>
-                  </li>
-                </ul>
-              </div>
-            </aside>
+          <div className="hero-card">
+            <p className="eyebrow">Tool deep dive</p>
+            <h1>{tool.name}</h1>
+            <p>{tool.shortDescription}</p>
+            <ul className="hero-meta">
+              <li>
+                <span className="label">Category</span>
+                <strong>{tool.category}</strong>
+              </li>
+              <li>
+                <span className="label">Plan</span>
+                <strong>{tool.typicalPlan}</strong>
+              </li>
+              <li>
+                <span className="label">Approx. cost</span>
+                <strong>{tool.approxMonthlyCost}</strong>
+              </li>
+            </ul>
+            <div className="tool-actions">
+              <a
+                href={tool.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="tf-button style2"
+              >
+                Visit {tool.name}
+              </a>
+              <a
+                href={`https://www.google.com/search?q=${encodeURIComponent(tool.name)}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="tf-button ghost"
+              >
+                Research more
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="toolbox-tools">
+        <div className="container">
+          <div className="tool-detail-summary">
+            <div>
+              <h4>Where it fits</h4>
+              <p>
+                {tool.name} lives inside the{' '}
+                <strong>{toolbox.name}</strong> toolbox. Combine it with the
+                rest of the stack to keep workflows unified.
+              </p>
+            </div>
+            <div>
+              <h4>Use it when</h4>
+              <p>{tool.recommendedFor}</p>
+            </div>
           </div>
         </div>
       </section>

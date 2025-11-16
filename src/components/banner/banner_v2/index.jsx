@@ -1,70 +1,82 @@
 import React from 'react';
 import '../styles.scss';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation } from 'swiper';
 import { Link } from 'react-router-dom';
 import Countdown from '../../countdown';
 
 function Banner() {
   return (
-    <div className="page-title">
-      <div className="slider-main">
-        <Swiper
-          modules={[Navigation]}
-          spaceBetween={0}
-          slidesPerView={1}
-          //   navigation
-        >
-          <SwiperSlide>
-            <div className="slider-st2">
-              <div className="container">
-                <div className="row">
-                  <div className="col-md-12">
-                    <div className="box-slider">
-                      <div className="content-box">
-                        <h1 className="title">WELCOME TO HYPERLINK</h1>
-                        <p className="sub-title">
-                          Hyperlink is an online platform that offers a curated
-                          collection of web tools
-                          <br className="show-destop" /> to make users&rsquo;
-                          lives easier
-                        </p>
-                        <div className="wrap-btn">
-                          <Link to="/toolboxes" className="tf-button style2">
-                            EXPLORE
-                          </Link>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-md-12">
-                    <div
-                      className="tf-title"
-                      data-aos="fade-up"
-                      data-aos-duration="800"
-                    >
-                      <div className="featured-countdown style2">
-                        <p className="featured_title">Website launching in</p>
-                        <span className="slogan"></span>
-                        <span className="js-countdown" data-timer="186555000">
-                          {<Countdown />}
-                        </span>
-                        <ul className="desc">
-                          <li>day</li>
-                          <li>hou</li>
-                          <li>min</li>
-                          <li>sec</li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
+    <section className="hero-banner">
+      <div className="hero-banner__glow" />
+      <div className="container">
+        <div className="hero-banner__grid">
+          <div className="hero-banner__content">
+            <p className="eyebrow">Hyperlink brand OS</p>
+            <h1>
+              Operationalise your web tools with a curated, story-driven
+              workspace.
+            </h1>
+            <p className="lead">
+              Hyperlink surfaces the exact SaaS combinations high-performing
+              teams rely on. We document why each tool matters, how much it
+              costs, and hand you a clean way to launch it with the rest of
+              your stack.
+            </p>
+            <ul className="hero-banner__bullets">
+              <li>Editorial toolboxes with pricing clarity.</li>
+              <li>Guided roll-outs for founders, operators & makers.</li>
+              <li>Human support layered on AI summaries.</li>
+            </ul>
+            <div className="hero-banner__actions">
+              <Link to="/toolboxes" className="tf-button style2">
+                Browse toolboxes
+              </Link>
+              <Link to="/contact" className="tf-button ghost">
+                Talk to us
+              </Link>
+            </div>
+            <div className="hero-banner__stats">
+              <div>
+                <strong>150+</strong>
+                <span>hand-reviewed tools</span>
+              </div>
+              <div>
+                <strong>3</strong>
+                <span>ready-to-use stacks today</span>
+              </div>
+              <div>
+                <strong>Zero spam</strong>
+                <span>just clean vendor guidance</span>
+              </div>
+            </div>
+          </div>
+          <div className="hero-banner__panel" data-aos="fade-left">
+            <div className="hero-banner__panel-card">
+              <p className="label">Next release window</p>
+              <div className="countdown">
+                <Countdown />
+                <span className="hint">Beta invites go out monthly.</span>
+              </div>
+              <div className="hero-banner__meta-list">
+                <div>
+                  <p className="label">Latest drop</p>
+                  <strong>Web Studio Launchpad</strong>
+                  <span>Everything a modern Webflow shop needs.</span>
+                </div>
+                <div>
+                  <p className="label">On deck</p>
+                  <strong>Ops Command Kit</strong>
+                  <span>Outbound, attribution, automations.</span>
                 </div>
               </div>
             </div>
-          </SwiperSlide>
-        </Swiper>
+            <div className="hero-banner__panel-card secondary">
+              <p>“Hyperlink makes SaaS ops feel editorial again.”</p>
+              <span>— Early adopter feedback</span>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
+    </section>
   );
 }
 
