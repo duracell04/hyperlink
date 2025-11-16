@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { Providers } from "@/components/Providers";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -13,8 +14,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Hyperlink",
-  description: "Hyperlink – SaaS leak reports and curated toolboxes demo",
+  title: "Hyperlink – SaaS Stack Clarity",
+  description:
+    "Hyperlink is the control panel for your SaaS stack: leak reports, tool inventories and curated toolboxes powered by mock data.",
 };
 
 export default function RootLayout({
@@ -24,10 +26,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        <Providers>{children}</Providers>
       </body>
     </html>
   );

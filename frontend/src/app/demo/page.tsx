@@ -1,213 +1,371 @@
-"use client";
+﻿'use client';
 
-import React, { useState } from "react";
-import { HyperlinkLogo } from "@/components/HyperlinkLogo";
-import { InlineLoader } from "@/components/Loaders";
-import {
-  fetchLeakReportMock,
-  fetchToolboxesMock,
-  type LeakReport,
-  type Toolbox,
-} from "@/lib/mockReport";
+import { useState } from "react";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { Header } from "@/components/Header";
+import { Card } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { getReportForScenario, toolboxes, type Issue } from "@/lib/mockData";
+import { toast } from "sonner";
 
-export default function DemoPage() {
-  const [report, setReport] = useState<LeakReport | null>(null);
-  const [toolboxes, setToolboxes] = useState<Toolbox[]>([]);
+const Demo = () => {
+  const searchParams = useSearchParams();
+  const router = useRouter();
+  const pathname = usePathname();
+  const initialScenario = searchParams.get("scenario") || "saas";
+  
+  const [scenario, setScenario] = useState(initialScenario);
   const [loading, setLoading] = useState(false);
+  const [appliedFixes, setAppliedFixes] = useState<Set<string>>(new Set());
+  
+  const report = getReportForScenario(scenario);
 
-  async function handleGenerate(e: React.FormEvent) {
-    e.preventDefault();
+  const handleScenarioChange = (newScenario: string) => {
+    setScenario(newScenario);
+    const params = new URLSearchParams(searchParams.toString());
+    params.set("scenario", newScenario);
+    const query = params.toString();
+    router.replace(query ? `${pathname}?${query}` : pathname, {
+      scroll: false,
+    });
+    setAppliedFixes(new Set());
+  };
+
+  const handleGenerateReport = () => {
     setLoading(true);
-    setReport(null);
-    setToolboxes([]);
-    const [r, t] = await Promise.all([
-      fetchLeakReportMock(),
-      fetchToolboxesMock(),
-    ]);
-    setReport(r);
-    setToolboxes(t);
-    setLoading(false);
-  }
+    setTimeout(() => {
+      setLoading(false);
+      toast.success("Mock report generated");
+    }, 800);
+  };
+
+  const toggleFix = (issueId: string) => {
+    setAppliedFixes(prev => {
+      const newSet = new Set(prev);
+      if (newSet.has(issueId)) {
+        newSet.delete(issueId);
+      } else {
+        newSet.add(issueId);
+      }
+      return newSet;
+    });
+  };
+
+  const calculateSavings = () => {
+    let totalSaving = 0;
+    report.issues.forEach(issue => {
+      if (appliedFixes.has(issue.id)) {
+        totalSaving += issue.potentialSaving;
+      }
+    });
+    return totalSaving;
+  };
+
+  const remainingWaste = report.estimatedWaste - calculateSavings();
 
   return (
-    <main className="min-h-screen bg-slate-950 text-slate-100 flex items-center justify-center px-4 py-8">
-      <div className="w-full max-w-4xl space-y-8">
-        <header className="flex items-center gap-4">
-          <HyperlinkLogo size={56} />
-          <div>
-            <h1 className="text-2xl md:text-3xl font-bold">
-              Hyperlink – SaaS Leak Report (Demo)
-            </h1>
-            <p className="text-slate-400 text-sm">
-              Demo of what Hyperlink would surface from your billing data. All
-              numbers and tools here are mock data.
-            </p>
-          </div>
-        </header>
+    <div className="min-h-screen bg-background">
+      <Header />
 
-        <form
-          onSubmit={handleGenerate}
-          className="flex flex-col md:flex-row items-start gap-4 md:items-center"
-        >
-          <div>
-            <label className="block text-sm font-medium text-slate-300 mb-1">
-              Card statement or SaaS receipts
-            </label>
-            <input
-              type="file"
-              disabled
-              className="block w-64 rounded-lg border border-slate-700 bg-slate-900/60 px-3 py-2 text-sm text-slate-500 cursor-not-allowed"
-            />
-            <p className="text-xs text-slate-500 mt-1">
-              In this demo, the file input is disabled. We use a sample stack.
-            </p>
-          </div>
-          <button
-            type="submit"
-            disabled={loading}
-            className="inline-flex items-center justify-center rounded-xl bg-gradient-to-b from-amber-300 to-orange-500 px-5 py-2.5 text-sm font-semibold text-slate-950 shadow-lg shadow-orange-500/30 transition hover:brightness-110 disabled:opacity-60"
-          >
-            {loading ? "Analyzing…" : "Generate mock report"}
-          </button>
-        </form>
-
-        {loading && (
-          <section className="rounded-2xl border border-slate-800 bg-slate-900/70 p-8">
-            <InlineLoader message="Analyzing your stack…" />
-            <p className="text-sm text-slate-400 mt-2">
-              We are simulating card-statement parsing and leakage detection.
-            </p>
-          </section>
-        )}
-
-        {report && (
-          <section className="space-y-6">
-            <div className="rounded-2xl border border-slate-800 bg-slate-900/70 p-6">
-              <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-                <div>
-                  <h2 className="text-xl font-semibold">
-                    Summary – {report.companyName}
-                  </h2>
-                  <p className="text-slate-400 text-sm">
-                    {report.headcount} people · {report.period}
-                  </p>
-                </div>
-                <div className="flex gap-6 text-sm">
-                  <div>
-                    <div className="text-slate-400">Total SaaS spend</div>
-                    <div className="text-lg font-semibold">
-                      €
-                      {report.totalSpend.toLocaleString("de-CH", {
-                        maximumFractionDigits: 0,
-                      })}
-                    </div>
-                  </div>
-                  <div>
-                    <div className="text-slate-400">Estimated waste</div>
-                    <div className="text-lg font-semibold text-amber-300">
-                      €
-                      {report.estimatedWaste.toLocaleString("de-CH", {
-                        maximumFractionDigits: 0,
-                      })}
-                    </div>
-                  </div>
-                </div>
+      <div className="container py-8 space-y-8">
+        {/* Scenario Selector */}
+        <Card className="p-6 border-border bg-card">
+          <h2 className="font-bold mb-4">Configure your mock company</h2>
+          <div className="space-y-4">
+            <div>
+              <label className="text-sm text-muted-foreground mb-2 block">Scenario</label>
+              <div className="flex flex-wrap gap-2">
+                <Button
+                  variant={scenario === 'saas' ? 'default' : 'outline'}
+                  onClick={() => handleScenarioChange('saas')}
+                  className={scenario === 'saas' ? 'bg-gradient-to-r from-brand-yellow to-brand-orange text-primary-foreground' : ''}
+                >
+                  SaaS team
+                </Button>
+                <Button
+                  variant={scenario === 'agency' ? 'default' : 'outline'}
+                  onClick={() => handleScenarioChange('agency')}
+                  className={scenario === 'agency' ? 'bg-gradient-to-r from-brand-yellow to-brand-orange text-primary-foreground' : ''}
+                >
+                  Agency
+                </Button>
+                <Button
+                  variant={scenario === 'student' ? 'default' : 'outline'}
+                  onClick={() => handleScenarioChange('student')}
+                  className={scenario === 'student' ? 'bg-gradient-to-r from-brand-yellow to-brand-orange text-primary-foreground' : ''}
+                >
+                  Student
+                </Button>
               </div>
+            </div>
+            <Button onClick={handleGenerateReport} disabled={loading}>
+              {loading ? 'Generating...' : 'Generate report'}
+            </Button>
+            <p className="text-xs text-muted-foreground">
+              In this demo, we use mock data from a {report.headcount}-person {scenario === 'saas' ? 'B2B SaaS company' : scenario === 'agency' ? 'digital agency' : 'student project'}.
+            </p>
+          </div>
+        </Card>
 
-              <div className="grid md:grid-cols-3 gap-4 mt-4 text-sm">
-                {report.leaks.map((leak) => (
-                  <div
-                    key={leak.id}
-                    className="rounded-xl border border-slate-800 bg-slate-950/60 p-4 space-y-1"
-                  >
-                    <div className="flex items-center justify-between">
-                      <span className="font-semibold">{leak.vendor}</span>
-                      <span className="text-xs rounded-full bg-slate-800 px-2 py-0.5 text-slate-300">
-                        {leak.category}
-                      </span>
-                    </div>
-                    <div className="text-xs text-slate-400">
-                      Spend: €
-                      {leak.spendPerYear.toLocaleString("de-CH", {
-                        maximumFractionDigits: 0,
-                      })}
-                      /year
-                    </div>
-                    <div className="text-xs uppercase tracking-wide text-rose-300 mt-1">
-                      {leak.issue === "duplicate" && "Duplicate tools"}
-                      {leak.issue === "zombie" && "Zombie subscription"}
-                      {leak.issue === "overprovisioned" &&
-                        "Overprovisioned seats"}
-                    </div>
-                    <p className="text-xs text-slate-200 mt-2">
-                      {leak.recommendation}
-                    </p>
-                  </div>
+        {/* Summary Cards */}
+        <div className="grid md:grid-cols-3 gap-4">
+          <SummaryCard
+            label="Total SaaS spend"
+            value={`â‚¬${report.totalSpend.toLocaleString()}`}
+            sublabel="/ year"
+          />
+          <SummaryCard
+            label="Estimated waste"
+            value={`â‚¬${remainingWaste.toLocaleString()}`}
+            sublabel="/ year"
+            highlight
+          />
+          <SummaryCard
+            label="Tools detected"
+            value={report.toolsCount.toString()}
+            sublabel={`across ${report.categoriesCount} categories`}
+          />
+        </div>
+
+        {/* Tabs */}
+        <Tabs defaultValue="overview" className="space-y-6">
+          <TabsList className="bg-card border border-border">
+            <TabsTrigger value="overview">Overview</TabsTrigger>
+            <TabsTrigger value="tools">Tools</TabsTrigger>
+            <TabsTrigger value="toolboxes">Toolboxes</TabsTrigger>
+          </TabsList>
+
+          <TabsContent value="overview" className="space-y-6">
+            {/* Top Issues */}
+            <div>
+              <h3 className="text-xl font-bold mb-4">Top issues</h3>
+              <div className="grid gap-4">
+                {report.issues.map((issue) => (
+                  <IssueCard
+                    key={issue.id}
+                    issue={issue}
+                    isFixed={appliedFixes.has(issue.id)}
+                    onToggle={() => toggleFix(issue.id)}
+                  />
                 ))}
               </div>
             </div>
 
-            {toolboxes.length > 0 && (
-              <div className="rounded-2xl border border-slate-800 bg-slate-900/70 p-6 space-y-4">
-                <h3 className="text-lg font-semibold">
-                  Example toolboxes Hyperlink AI could suggest
-                </h3>
-                <p className="text-slate-400 text-sm">
-                  Based on your role, goals and budget, Hyperlink would propose a
-                  curated stack instead of a random tool zoo.
+            {/* Savings Simulation */}
+            {appliedFixes.size > 0 && (
+              <Card className="p-6 border-success/50 bg-success/5">
+                <h4 className="font-semibold mb-2 text-success">Potential savings</h4>
+                <p className="text-sm text-muted-foreground">
+                  If you apply all selected fixes, your estimated waste drops from{" "}
+                  <span className="font-semibold text-foreground">â‚¬{report.estimatedWaste.toLocaleString()}/year</span> to{" "}
+                  <span className="font-semibold text-foreground">â‚¬{remainingWaste.toLocaleString()}/year</span>
+                  {" "}â€” saving{" "}
+                  <span className="font-semibold text-success">â‚¬{calculateSavings().toLocaleString()}/year</span>.
                 </p>
-
-                <div className="space-y-3">
-                  {toolboxes.map((box) => (
-                    <div
-                      key={box.id}
-                      className="rounded-xl border border-slate-800 bg-slate-950/50 p-4"
-                    >
-                      <div className="flex flex-col gap-1 mb-2">
-                        <div className="flex items-center justify-between gap-2">
-                          <span className="font-semibold">{box.name}</span>
-                          <span className="text-xs text-slate-400">
-                            {box.idealTeamSize}
-                          </span>
-                        </div>
-                        <p className="text-slate-300 text-sm">{box.tagline}</p>
-                        <p className="text-slate-400 text-xs">
-                          Ideal for: {box.idealUser}
-                        </p>
-                      </div>
-                      <ul className="text-xs text-slate-300 space-y-1">
-                        {box.tools.map((tool) => (
-                          <li
-                            key={tool.id}
-                            className="border-t border-slate-800 pt-2 mt-2"
-                          >
-                            <div className="flex justify-between gap-2">
-                              <a
-                                href={tool.url}
-                                target="_blank"
-                                rel="noreferrer"
-                                className="text-sky-300 hover:underline"
-                              >
-                                {tool.name}
-                              </a>
-                              <span className="text-slate-400 whitespace-nowrap">
-                                {tool.approxMonthlyCost}
-                              </span>
-                            </div>
-                            <div className="text-slate-400">
-                              {tool.shortDescription}
-                            </div>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  ))}
-                </div>
-              </div>
+              </Card>
             )}
-          </section>
-        )}
+          </TabsContent>
+
+          <TabsContent value="tools" className="space-y-6">
+            <div className="space-y-4">
+              <h3 className="text-xl font-bold">All tools in stack</h3>
+              <div className="space-y-2">
+                {report.tools.map((tool) => (
+                  <Card key={tool.id} className="p-4 border-border bg-card hover:border-primary/30 transition-colors">
+                    <div className="flex items-center justify-between">
+                      <div className="flex-1">
+                        <div className="flex items-center gap-3">
+                          <h4 className="font-semibold">{tool.name}</h4>
+                          <Badge variant="outline" className="text-xs">{tool.category}</Badge>
+                          <StatusBadge status={tool.status} />
+                        </div>
+                        {tool.website && (
+                          <a
+                            href={`https://${tool.website}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-xs text-muted-foreground hover:text-primary transition-colors"
+                          >
+                            {tool.website} â†—
+                          </a>
+                        )}
+                      </div>
+                      <p className="text-lg font-semibold tabular-nums">
+                        â‚¬{tool.annualSpend.toLocaleString()}
+                        <span className="text-xs text-muted-foreground ml-1">/year</span>
+                      </p>
+                    </div>
+                  </Card>
+                ))}
+              </div>
+            </div>
+          </TabsContent>
+
+          <TabsContent value="toolboxes" className="space-y-6">
+            <div className="space-y-4">
+              <h3 className="text-xl font-bold">Suggested toolboxes</h3>
+              <p className="text-sm text-muted-foreground">
+                Based on your team size and current tools, these curated stacks might be a good fit.
+              </p>
+              <div className="grid md:grid-cols-2 gap-6">
+                {toolboxes.map((toolbox) => (
+                  <Card key={toolbox.id} className="p-6 border-border bg-card">
+                    <h4 className="text-lg font-bold mb-2">{toolbox.name}</h4>
+                    <p className="text-sm text-muted-foreground mb-4">{toolbox.tagline}</p>
+                    <div className="space-y-2 mb-4">
+                      <p className="text-xs text-muted-foreground">
+                        <span className="font-medium">Ideal for:</span> {toolbox.idealFor}
+                      </p>
+                      <p className="text-xs text-muted-foreground">
+                        <span className="font-medium">Team size:</span> {toolbox.teamSize}
+                      </p>
+                    </div>
+                    <div className="space-y-2 mb-4">
+                      {toolbox.tools.map((tool, idx) => (
+                        <div key={idx} className="text-sm">
+                          <a
+                            href={`https://${tool.website}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="font-medium text-foreground hover:text-primary transition-colors"
+                          >
+                            {tool.name} â†—
+                          </a>
+                          <p className="text-xs text-muted-foreground">
+                            {tool.description} Â· {tool.approxCost}
+                          </p>
+                        </div>
+                      ))}
+                    </div>
+                    <Button
+                      variant="outline"
+                      className="w-full"
+                      onClick={() => toast.info("In a real setup, this would propose a consolidation plan")}
+                    >
+                      Apply this toolbox
+                    </Button>
+                  </Card>
+                ))}
+              </div>
+            </div>
+          </TabsContent>
+        </Tabs>
+
+        {/* Next Steps */}
+        <Card className="p-8 border-border bg-card">
+          <h3 className="text-xl font-bold mb-4">What a real Hyperlink engagement looks like</h3>
+          <ul className="space-y-2 mb-6 text-sm text-muted-foreground">
+            <li className="flex items-start gap-2">
+              <span className="text-primary mt-0.5">1.</span>
+              You share read-only billing data (card statements or invoice inbox).
+            </li>
+            <li className="flex items-start gap-2">
+              <span className="text-primary mt-0.5">2.</span>
+              We run a full SaaS Leak Report and review it with you in 30 minutes.
+            </li>
+            <li className="flex items-start gap-2">
+              <span className="text-primary mt-0.5">3.</span>
+              If we don’t find at least 10% savings or risk fixes, you don’t pay.
+            </li>
+          </ul>
+          <a href="mailto:contact@hyperlink.tools">
+            <Button size="lg" className="bg-gradient-to-r from-brand-yellow to-brand-orange text-primary-foreground hover:opacity-90">
+              Talk to us about a real audit
+            </Button>
+          </a>
+        </Card>
+
+        {/* Disclaimer */}
+        <p className="text-center text-xs text-muted-foreground pb-8">
+          This is a frontend-only demo using mock data. No real billing or personal data is processed in this version.
+        </p>
       </div>
-    </main>
+    </div>
   );
-}
+};
+
+const SummaryCard = ({
+  label,
+  value,
+  sublabel,
+  highlight,
+}: {
+  label: string;
+  value: string;
+  sublabel: string;
+  highlight?: boolean;
+}) => (
+  <Card className="p-6 border-border bg-card">
+    <p className="text-sm text-muted-foreground mb-2">{label}</p>
+    <p className={`text-3xl font-bold tabular-nums ${highlight ? 'text-destructive' : 'text-foreground'}`}>
+      {value}
+      <span className="text-sm text-muted-foreground ml-1">{sublabel}</span>
+    </p>
+  </Card>
+);
+
+const IssueCard = ({
+  issue,
+  isFixed,
+  onToggle,
+}: {
+  issue: Issue;
+  isFixed: boolean;
+  onToggle: () => void;
+}) => (
+  <Card className="p-6 border-border bg-card">
+    <div className="flex items-start justify-between gap-4">
+      <div className="flex-1 space-y-2">
+        <div className="flex items-center gap-3">
+          <h4 className="font-semibold">{issue.tool}</h4>
+          <Badge variant="outline">{issue.category}</Badge>
+          <IssueBadge type={issue.type} />
+        </div>
+        <p className="text-sm text-muted-foreground">{issue.recommendation}</p>
+        <p className="text-sm font-semibold text-success">
+          Potential saving: â‚¬{issue.potentialSaving.toLocaleString()}/year
+        </p>
+      </div>
+      <div className="flex flex-col items-end gap-2">
+        <p className="text-lg font-bold tabular-nums text-destructive">
+          â‚¬{issue.annualCost.toLocaleString()}
+          <span className="text-xs text-muted-foreground ml-1">/year</span>
+        </p>
+        <Button
+          variant={isFixed ? "default" : "outline"}
+          size="sm"
+          onClick={onToggle}
+          className={isFixed ? 'bg-success hover:bg-success/90' : ''}
+        >
+          {isFixed ? 'âœ“ Fix applied' : 'Simulate fix'}
+        </Button>
+      </div>
+    </div>
+  </Card>
+);
+
+const IssueBadge = ({ type }: { type: Issue['type'] }) => {
+  const variants = {
+    zombie: { label: 'Zombie', className: 'bg-destructive/10 text-destructive' },
+    duplicate: { label: 'Duplicate', className: 'bg-warning/10 text-warning' },
+    overprovisioned: { label: 'Overprovisioned', className: 'bg-accent/10 text-accent' },
+  };
+  const variant = variants[type];
+  return <Badge className={variant.className}>{variant.label}</Badge>;
+};
+
+const StatusBadge = ({ status }: { status: string }) => {
+  const variants = {
+    healthy: { label: 'Healthy', className: 'bg-success/10 text-success' },
+    zombie: { label: 'Zombie', className: 'bg-destructive/10 text-destructive' },
+    duplicate: { label: 'Duplicate', className: 'bg-warning/10 text-warning' },
+    overprovisioned: { label: 'Over-provisioned', className: 'bg-accent/10 text-accent' },
+  };
+  const variant = variants[status as keyof typeof variants];
+  return <Badge className={variant.className}>{variant.label}</Badge>;
+};
+
+export default Demo;
+

@@ -1,5 +1,5 @@
-import { PrimaryLoader } from "@/components/Loaders";
+import { LoadingScreen } from "@/components/LoadingScreen";
 
 export default function Loading() {
-  return <PrimaryLoader />;
+  return <LoadingScreen />;
 }
