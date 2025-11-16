@@ -1,46 +1,52 @@
 # Contributing to Hyperlink
 
-Thank you for considering a contribution! This project uses Node.js and React. The following steps will help you get started.
+Thanks for helping keep the Hyperlink mock sharp. This document collects the day-to-day conventions so you can land changes quickly without breaking the demo.
 
-## Running the Project
+## Tooling expectations
 
-1. Install dependencies:
-   ```bash
-   npm install
-   ```
-2. Copy the example environment file and add your Firebase credentials:
-   ```bash
-   cp .env.example .env
-   # edit .env with values from your Firebase project
-   ```
-3. Start the development server:
-   ```bash
-   npm start
-   ```
-4. Run the full test suite:
-   ```bash
-   npm test
-   ```
-5. Lint and format the code:
-   ```bash
-   npm run lint
-   npm run format
-   ```
-6. Build for production when ready:
-   ```bash
-   npm run build
-   ```
+| Purpose          | Command                    | Notes |
+| ---------------- | -------------------------- | ----- |
+| Install deps     | `pnpm install`             | pnpm is the canonical package manager (see `packageManager` in `package.json`). |
+| Dev server       | `pnpm dev`                 | Runs the Next.js App Router dev server on port 3000. |
+| Type checking    | `pnpm typecheck`           | Uses `tsc --noEmit`. |
+| Linting          | `pnpm lint`                | Runs `next lint`. |
+| Aggregate tests  | `pnpm test`                | Convenience script that chains lint + typecheck (used by Husky + CI). |
+| Production build | `pnpm build` / `pnpm start`| Build mirrors CI; `start` serves the result locally. |
 
-## Style Guidelines
+Install Husky hooks by running `pnpm install` (it triggers `pnpm prepare` which installs hooks). The `pre-commit` hook runs `pnpm test`.
 
-- Code is formatted with **Prettier** (`npm run format`).
-- **ESLint** checks for issues (`npm run lint`).
-- A pre-commit hook provided by **Husky** automatically runs formatting and linting.
+## Branch & commit workflow
 
-## Submitting Changes
+1. Branch from `main` (`git checkout -b feat/<topic>` or similar).
+2. Make your changes alongside any mock data/docs updates.
+3. Run `pnpm test` and `pnpm build`.
+4. Manually spot-check `/` and `/demo`, especially for visual tweaks.
+5. Commit with a descriptive message (`feat: add scenario toggle`, `docs: expand roadmap`, etc.).
+6. Open a PR; ensure CI (lint → typecheck → test → build) is green before requesting review.
 
-1. Fork the repository and create a feature branch.
-2. Ensure `npm test` and `npm run lint` complete without errors.
-3. Open a pull request describing the changes and any relevant context.
+## Pull request checklist
 
-We appreciate your help in improving Hyperlink!
+- [ ] Code compiles (`pnpm build`).
+- [ ] `pnpm test` passes locally (lint + typecheck).
+- [ ] UI changes were verified on `/` and/or `/demo`.
+- [ ] Mock data updated (if behaviour or copy changed).
+- [ ] README/docs reflect new behaviour or setup steps.
+- [ ] Screenshots/GIFs attached when UI shifts materially.
+
+## Coding conventions
+
+- Use the existing Tailwind + shadcn design tokens; prefer composing from `src/components/ui` primitives where available.
+- Keep new modules in the existing structure (`src/app`, `src/components`, `src/lib`, `src/hooks`).
+- Favour TypeScript types/interfaces near their usage; reuse shared types via `src/lib/types.ts` when a contract spans multiple modules.
+- Avoid introducing additional package managers or build tools; align with pnpm + Next.js defaults.
+
+## Filing issues / triage
+
+When opening issues, include:
+
+- Route(s) affected (`/`, `/demo`, etc.).
+- Screenshots of the current vs. expected behaviour.
+- Steps to reproduce, including any mock data changes required.
+- Suggested priority (`p1` = launch blocker, `p3` = polish/nice-to-have).
+
+Thanks for contributing! Ping `contact@hyperlink.tools` if you need context beyond this doc.

@@ -12,6 +12,7 @@
     "start": "next start",
     "lint": "next lint",
     "typecheck": "tsc --noEmit",
+    "test": "pnpm lint && pnpm typecheck",
     "prepare": "husky install"
   },
   "dependencies": {

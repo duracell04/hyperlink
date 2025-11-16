@@ -1,99 +1,78 @@
 # Hyperlink
 
-Hyperlink is an automated web-tool management system for teams with a large SaaS stack.
-It acts as your central library of 'who can access what', and as an audit layer that shows which tools are really needed, which should be cancelled, and which are missing for a healthy stack.
+Hyperlink is an automated web-tool management system for teams with a large SaaS stack. It acts as the central library of _who can access what_ and as an audit layer that spotlights which tools are truly needed, which should be cancelled, and which are missing for a healthy stack.
 
 ## What is Hyperlink (product vision)?
 
-Hyperlink is an automated web-tool management system for companies with a big SaaS stack.
-
-It is designed to be:
+Hyperlink is designed as an always-on control panel for SaaS operations. It combines three lenses:
 
 ### Your web-tool library
 
-A single, always-up-to-date list of:
-- Which SaaS tools the company uses
-- Which people or teams can access each one
-- Through which identity channel (SSO, shared account, role, etc.)
+- A single, up-to-date list of which SaaS tools the company uses
+- Ownership metadata for every tool (team, role, admin vs. member)
+- Channel visibility: SSO, shared accounts, role-based access, etc.
 
 ### Your access map
 
-A clear view of:
-- Who has admin vs. user rights
-- Which shared credentials exist (ideally via integrations with password managers or SSO)
-- Where offboarding gaps might exist (ex-employees, unused accounts, risky access patterns)
+- Clear separation of admin vs. user rights
+- Insight into shared credentials (password manager, SSO groups, shared inboxes)
+- Offboarding visibility (ex-employees, unused accounts, risky access patterns)
 
 ### Your audit layer
 
-An opinionated report on:
-- What is truly needed and actively used
-- What should be downgraded or cancelled (zombies, duplicates, overprovisioned seats)
-- What is missing for a healthy stack (for example no password manager, no logging, no proper analytics)
+- Usage vs. spend analysis to reveal zombies, duplicates, and overprovisioned seats
+- Security/governance signals (too many admins, missing owners, weak controls)
+- Recommendations for missing stack pieces (password manager, monitoring, analytics)
 
-The mockup in this repo focuses on the audit side (SaaS Leak Report + Toolboxes preview) while hinting at the longer-term direction: a full web-tool library and access cockpit.
+The mockup in this repo focuses on the audit view (SaaS Leak Report + Toolboxes preview) while hinting at the longer-term direction: a full library + access cockpit.
 
 ## What this repo is
 
-This repository contains the Hyperlink demo/MVP frontend. It is a clickable product mockup that:
+This repository contains the Hyperlink demo/MVP frontend. It is a clickable mockup that:
 
-- Demonstrates the core product concept (SaaS Leak Report + SaaS control panel)
-- Shows the intended UX and information architecture
+- Demonstrates the SaaS Leak Report + control panel concept
+- Shows the intended UX and product narrative
 - Supports conversations with early users, mentors, and investors
 
-It does not process real billing data or connect to a production backend yet. All data is mocked and local, so think of it as a realistic product tour, not the final product.
-
-## Core product capabilities (target)
-
-Hyperlink is meant to cover three pillars:
-
-### Tool library (What do we have?)
-
-- Automated discovery of all SaaS tools paid for by the company (billing data, card statements, invoice inbox)
-- Categorised inventory (design, docs, dev, analytics, CRM, etc.)
-- Per-tool metadata: vendor, plan, cost, billing frequency, owning team, and links to docs, contracts, or security info
-
-### Access library (Who can access what?)
-
-- Mapping of users to tools to roles (admin, member, guest)
-- Visibility into SSO groups and shared accounts via password manager or SSO integrations
-- Identification of tools with too many admins, tools still accessible to ex-employees, and shared logins that should move into a proper identity system
-
-### Audit and recommendations (What should change?)
-
-- Usage vs. spend analysis that highlights zombie subscriptions, duplicates, and overprovisioned seats
-- Security and governance signals such as offboarding risk, weak ownership, and tools with no clear owner
-- Detection of missing pieces (for example no password manager or monitoring for a production stack)
-- Actionable output: a SaaS Leak Report and a Next steps list that can be reviewed monthly in ops or finance meetings
-
-The current mockup shows a slice of this: how a Leak Report could look, how key issues are presented, and how curated toolboxes could guide what to keep, cut, or add.
+There is no production backend here. All data is mocked locally--think of this as a polished tour, not a live product.
 
 ## Demo highlights
 
 ### Landing page (`/`)
 
-- Hero section explaining 'The control panel for your SaaS stack' with mock company metrics
-- Use cases for SaaS companies, agencies, and students or solo builders
-- 'What Hyperlink does' story (Discover, Diagnose, Recommend)
-- Toolboxes teaser that showcases curated stacks Hyperlink AI could suggest
-- Roadmap strip outlining Today, Next, and Later milestones
+- Hero section that pitches “The control panel for your SaaS stack”
+- Use cases for SaaS businesses, agencies, students/solo builders
+- “Discover �' Diagnose �' Recommend” storyline
+- Toolboxes teaser highlighting curated stacks Hyperlink AI could suggest
+- Roadmap strip covering Today, Next, Later milestones
 
 ### Demo page (`/demo`)
 
-- Pseudo-upload input that simulates ingesting statements
-- SaaS Leak Report view with spend, waste, tool count, and issue cards
-- Simple savings simulator concept with Apply fix toggles
-- Tools list/table with health status and category filters
-- Toolboxes view that indicates which recommended tools already exist in the stack
-- Optional scenario view comparing Current vs. Consolidated stack
+- Pseudo-upload flow that mimics ingesting statements
+- SaaS Leak Report with spend/waste/headline insights
+- Savings simulator with “apply fix” toggles
+- Tool list/table with health status and filters
+- Toolboxes section showing which recommendations already exist in the stack
+- Optional scenario toggle (Current vs. Consolidated stack)
 
-Everything you see in the demo is powered by local mock data (for example `mockReport.ts` or `mockToolboxes.ts`), not live integrations.
+Everything is powered by local mock modules (`src/lib/mockReport.ts`, `src/lib/mockToolboxes.ts`, etc.).
 
-## Tech stack (demo)
+## Tech stack (current demo)
 
-- Next.js App Router + React 18 + TypeScript (pnpm managed)
-- Tailwind CSS with shadcn UI primitives + Radix building blocks
-- TanStack Query, next-themes, lucide-react, and Sonner for UX polish
-- Mock modules for leak reports and toolboxes (no real billing data)
+- **Framework**: Next.js (App Router) + React 18 + TypeScript
+- **Styling**: Tailwind CSS with shadcn/Radix primitives and branded components
+- **State/UX helpers**: TanStack Query, next-themes, lucide-react, Sonner
+- **Tooling**: pnpm, ESLint, TypeScript, Tailwind CLI
+- **Data**: local mocks only--no production billing data or APIs
+
+## Architecture at a glance
+
+- `src/app`: Next.js App Router routes (`page.tsx`, `/demo/page.tsx`, layout, etc.)
+- `src/components`: reusable primitives (Hero card, Header, ThemeToggle, etc.)
+- `src/components/ui`: curated subset of shadcn components that the demo actually uses
+- `src/lib`: mock data, helper utilities (`utils.ts`)
+- `src/hooks`: custom hooks (theme helpers, query helpers)
+- `public`: favicon and robots text only (unused placeholder assets removed)
 
 ## Getting started
 
@@ -102,29 +81,72 @@ pnpm install
 pnpm dev
 ```
 
-Then open http://localhost:3000 to explore the clickable mockup.
+Then open:
+
+- `http://localhost:3000/` for the landing/story experience
+- `http://localhost:3000/demo` for the interactive mock report
+
+## Development workflow
+
+Run these locally before pushing:
+
+```bash
+pnpm lint
+pnpm typecheck
+pnpm test
+pnpm build
+```
+
+Notes:
+
+- `pnpm test` is an aggregate script that runs lint + typecheck.
+- Husky's pre-commit hook invokes `pnpm test`, so the same guardrails apply locally and in CI.
+- The GitHub Actions workflow replicates the same steps and uploads the `.next` build artifact for previewing.
+
+Additional guidance:
+
+- [CONTRIBUTING.md](./CONTRIBUTING.md) covers branch conventions, commit checklists, and PR etiquette.
+- [ARCHITECTURE.md](./ARCHITECTURE.md) documents the project layout, mock data flow, and design system usage.
+
+## Contribution checklist
+
+1. Create a branch and make your change.
+2. Run `pnpm test` (lint + typecheck) and `pnpm build` to ensure the mock compiles.
+3. Verify `/` and `/demo` manually if you touched UX.
+4. Update documentation or mock data when behaviour changes.
+5. Commit with a clear message and open a PR--CI must stay green.
+
+## Testing & QA
+
+- Use `pnpm test` for fast structural checks.
+- `pnpm lint`/`pnpm typecheck` can still run individually if you’re iterating on one dimension.
+- Snapshot or visual testing is manual for now--take screen captures when altering layouts.
+
+## Deployment / hosting
+
+The demo targets a standard Next.js deployment (Vercel or any Node-friendly host). Former Firebase Hosting configs have been removed; run `pnpm build && pnpm start` the same way CI does if you need to preview in another environment.
 
 ## Roadmap
 
-Short-term:
+**Short-term**
 
-- Finalise `/` and `/demo` flows
-- Align copy and visuals with the product story
+- Finalise `/` and `/demo` flows and copy
 - Keep mock data realistic and internally consistent
-- Polish loading states with the Hyperlink-branded animation
+- Polish loading/transition states with the Hyperlink animation
 
-Medium-term:
+**Medium-term**
 
-- Harden the Next.js + Tailwind + TypeScript implementation (or graduate it into a production stack)
-- Introduce basic backend endpoints for CSV upload and simple parsing/report generation
-- Add auth and multi-tenant support once storage and security are defined
+- Harden the Next.js + Tailwind implementation (or graduate into production)
+- Introduce lightweight backend endpoints for CSV uploads + parsing
+- Add auth and multi-tenant support once storage/security paths are defined
 
 ## Contact and feedback
 
-This repo is primarily for early adopters, mentors, investors, and potential collaborators. If you have feedback, want to explore a pilot, or are interested in collaborating, reach out at contact@hyperlink.tools.
-
-We welcome thoughtful feedback on the problem framing, the UX, and the roadmap.
+This repo is for early adopters, mentors, investors, and collaborators. Share feedback or pilot interest via [contact@hyperlink.tools](mailto:contact@hyperlink.tools). Thoughtful critiques on the problem framing, UX, or roadmap are welcome.
 
 ## Disclaimer
 
-This is not production software. Do not use it with real billing exports or production credentials. No real financial data is processed in this demo.
+This is not production software. Do **not** use it with real billing exports or production credentials. No real financial data is processed in this demo.
+
+
+
