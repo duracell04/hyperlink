@@ -1,7 +1,7 @@
 import React, { createContext, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { auth } from '../configs/firebase';
-import LogoAnimation from '../assets/animations/hyperlink-logo.gif';
+import Logo from '../components/Logo';
 
 // Create the AuthContext
 export const AuthContext = createContext();
@@ -30,8 +30,9 @@ export const AuthContextProvider = ({ children }) => {
         <div
           style={{ paddingTop: '220px' }}
           className="h-100 mh-100 w-100 d-flex align-items-center justify-content-center"
-        >
-          <img src={LogoAnimation} width={450} alt="" />
+          <div className="text-center">
+            <Logo size="lg" />
+          </div>
         </div>
       ) : (
         children

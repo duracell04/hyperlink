@@ -3,6 +3,7 @@ import linkedIn from './linkedin-svgrepo-com.svg';
 import './styles.scss';
 
 import { Link } from 'react-router-dom';
+import Logo from '../Logo';
 
 function Footer() {
   const [isVisible, setIsVisible] = useState(false);
@@ -34,11 +35,7 @@ function Footer() {
           <div className="row">
             <div className="footer-logo">
               <div className="logo_footer">
-                <img
-                  src={require('../../assets/images/logo/hyperlink-removebg.png')}
-                  alt=""
-                  width="80px"
-                />
+                <Logo size="md" />
               </div>
               <p>Leading platforming in marketing</p>
             </div>

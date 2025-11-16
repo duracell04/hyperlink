@@ -4,11 +4,11 @@ import { Link, NavLink } from 'react-router-dom';
 import menus from '../../pages/menu';
 import './styles.scss';
 import Dropdown from 'react-bootstrap/Dropdown';
-import logo from '../../assets/images/logo/hyperlink-removebg.png';
 import { useNavigate } from 'react-router-dom';
 import { signOut } from 'firebase/auth';
 import { auth } from '../../configs/firebase';
 import { AuthContext } from '../../context/authContext';
+import Logo from '../Logo';
 
 const Header = () => {
   const { currentUser } = useContext(AuthContext);
@@ -52,7 +52,7 @@ const Header = () => {
         <div id="site-header-inner">
           <div className="header__logo">
             <NavLink to="/">
-              <img src={logo} width="80" alt="Risebot" />
+              <Logo className="align-items-center" size="md" />
             </NavLink>
           </div>
           <nav
