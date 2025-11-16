@@ -18,8 +18,8 @@ function Banner() {
             <p className="lead">
               Hyperlink surfaces the exact SaaS combinations high-performing
               teams rely on. We document why each tool matters, how much it
-              costs, and hand you a clean way to launch it with the rest of
-              your stack.
+              costs, and hand you a clean way to launch it with the rest of your
+              stack.
             </p>
             <ul className="hero-banner__bullets">
               <li>Editorial toolboxes with pricing clarity.</li>

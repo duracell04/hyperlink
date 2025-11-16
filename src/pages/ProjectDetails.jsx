@@ -84,7 +84,9 @@ function ProjectDetails() {
                 Visit {tool.name}
               </a>
               <a
-                href={`https://www.google.com/search?q=${encodeURIComponent(tool.name)}`}
+                href={`https://www.google.com/search?q=${encodeURIComponent(
+                  tool.name
+                )}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="tf-button ghost"
@@ -102,9 +104,9 @@ function ProjectDetails() {
             <div>
               <h4>Where it fits</h4>
               <p>
-                {tool.name} lives inside the{' '}
-                <strong>{toolbox.name}</strong> toolbox. Combine it with the
-                rest of the stack to keep workflows unified.
+                {tool.name} lives inside the <strong>{toolbox.name}</strong>{' '}
+                toolbox. Combine it with the rest of the stack to keep workflows
+                unified.
               </p>
             </div>
             <div>

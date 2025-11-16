@@ -12,9 +12,10 @@ const AboutUs = () => {
           <h1>We are Hyperlink</h1>
           <p>
             Hyperlink started with a founder juggling forgotten seat licenses,
-            password spreadsheets, and missed renewals. Today we run a calm layer
-            on top of SaaS — blending editorial research, product ops expertise,
-            and partner data so you can see, explain, and launch the right tools.
+            password spreadsheets, and missed renewals. Today we run a calm
+            layer on top of SaaS — blending editorial research, product ops
+            expertise, and partner data so you can see, explain, and launch the
+            right tools.
           </p>
           <div className="meta-grid">
             <div>
@@ -30,7 +31,9 @@ const AboutUs = () => {
             <div>
               <span>North star</span>
               <strong>Unified tooling OS</strong>
-              <p>One calm interface for every vendor relationship you manage.</p>
+              <p>
+                One calm interface for every vendor relationship you manage.
+              </p>
             </div>
           </div>
           <div style={{ marginTop: 24 }}>
@@ -72,7 +75,12 @@ const AboutUs = () => {
                   }}
                 />
                 <h5>{teammate.name}</h5>
-                <p style={{ textTransform: 'uppercase', letterSpacing: '0.12em' }}>
+                <p
+                  style={{
+                    textTransform: 'uppercase',
+                    letterSpacing: '0.12em',
+                  }}
+                >
                   {teammate.unit}
                 </p>
                 <p>{teammate.describe}</p>

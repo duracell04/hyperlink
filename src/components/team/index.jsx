@@ -23,7 +23,8 @@ function Team(props) {
               <h2>{dataTitle.title}</h2>
               <p>
                 Hyperlink mixes craft editorial work with deep tooling
-                experience. Meet the crew translating chaos into clean playbooks.
+                experience. Meet the crew translating chaos into clean
+                playbooks.
               </p>
               <Link to="/team_details" className="tf-button style2">
                 Learn more

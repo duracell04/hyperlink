@@ -21,7 +21,9 @@ function ToolboxesPage() {
               </p>
               <ul className="hero-bullets">
                 <li>Each toolbox contains real tools and cost guidance.</li>
-                <li>Click in for a breakdown of plan, use case, and rollout.</li>
+                <li>
+                  Click in for a breakdown of plan, use case, and rollout.
+                </li>
                 <li>Use these as inspiration or as-is for your team.</li>
               </ul>
             </div>
