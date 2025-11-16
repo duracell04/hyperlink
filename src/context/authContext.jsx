@@ -30,6 +30,7 @@ export const AuthContextProvider = ({ children }) => {
         <div
           style={{ paddingTop: '220px' }}
           className="h-100 mh-100 w-100 d-flex align-items-center justify-content-center"
+        >
           <div className="text-center">
             <Logo size="lg" />
           </div>
