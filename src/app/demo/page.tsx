@@ -1,6 +1,7 @@
 'use client';
 
 import { useMemo, useState } from "react";
+import type { Route } from "next";
 import { useRouter, usePathname, useSearchParams } from "next/navigation";
 
 import { Header } from "@/components/Header";
@@ -37,7 +38,8 @@ export default function DemoPage() {
     const params = new URLSearchParams(searchParams.toString());
     params.set("scenario", nextScenario);
     const query = params.toString();
-    router.replace(query ? `${pathname}?${query}` : pathname, { scroll: false });
+    const nextUrl = (query ? `${pathname}?${query}` : pathname) as Route;
+    router.replace(nextUrl, { scroll: false });
   };
 
   const handleGenerateReport = () => {
