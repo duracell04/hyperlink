@@ -1,0 +1,209 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here.
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Light theme - Corporate minimalist */
+    --background: 0 0% 100%;
+    --background-secondary: 220 15% 97%;
+    --foreground: 220 20% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 20% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 20% 10%;
+
+    /* Brand colors - Corporate blue/slate */
+    --brand-yellow: 215 30% 60%;
+    --brand-orange: 215 25% 50%;
+
+    --primary: 215 28% 55%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 10% 92%;
+    --secondary-foreground: 220 20% 10%;
+
+    --muted: 220 10% 92%;
+    --muted-foreground: 220 10% 40%;
+
+    --accent: 215 20% 88%;
+    --accent-foreground: 220 20% 10%;
+
+    /* State colors */
+    --destructive: 0 70% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 142 60% 45%;
+    --success-foreground: 0 0% 100%;
+
+    --warning: 38 90% 55%;
+    --warning-foreground: 220 20% 10%;
+
+    --border: 220 15% 88%;
+    --input: 220 15% 88%;
+    --ring: 215 28% 55%;
+
+    --radius: 1rem;
+  }
+
+  .dark {
+    /* Dark theme - Corporate minimalist */
+    --background: 220 20% 8%;
+    --background-secondary: 220 18% 12%;
+    --foreground: 220 10% 95%;
+
+    --card: 220 18% 12%;
+    --card-foreground: 220 10% 95%;
+
+    --popover: 220 18% 12%;
+    --popover-foreground: 220 10% 95%;
+
+    --primary: 215 28% 55%;
+    --primary-foreground: 220 20% 8%;
+
+    --secondary: 220 15% 18%;
+    --secondary-foreground: 220 10% 95%;
+
+    --muted: 220 12% 25%;
+    --muted-foreground: 220 8% 60%;
+
+    --accent: 215 20% 40%;
+    --accent-foreground: 220 10% 95%;
+
+    --destructive: 0 70% 55%;
+    --destructive-foreground: 220 10% 95%;
+
+    --success: 142 60% 45%;
+    --success-foreground: 220 10% 95%;
+
+    --warning: 38 90% 55%;
+    --warning-foreground: 220 20% 8%;
+
+    --border: 220 15% 20%;
+    --input: 220 15% 20%;
+    --ring: 215 28% 55%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  /* Gradient text utility - Subtle corporate gradient */
+  .gradient-text {
+    @apply bg-gradient-to-r from-[hsl(var(--primary))] to-[hsl(var(--accent))] bg-clip-text text-transparent;
+  }
+
+  /* Tabular numbers for monetary values */
+  .tabular-nums {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+@layer components {
+  /* Animations */
+  @keyframes logo-pulse {
+    0%,
+    100% {
+      opacity: 1;
+      transform: scale(1) rotate(45deg);
+    }
+    50% {
+      opacity: 0.8;
+      transform: scale(1.05) rotate(90deg);
+    }
+  }
+
+  @keyframes count-up {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes skeleton-shimmer {
+    0% {
+      background-position: -200% 0;
+    }
+    100% {
+      background-position: 200% 0;
+    }
+  }
+
+  @keyframes fade-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Preloader effect */
+  .preloader {
+    @apply fixed inset-0 z-[9999] flex items-center justify-center bg-background;
+    transition: opacity 0.3s ease-out, visibility 0.3s ease-out;
+  }
+
+  .preloader.clear-loading {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  .loading-effect-2 {
+    position: relative;
+    width: 80px;
+    height: 80px;
+  }
+
+  .loading-effect-2::before,
+  .loading-effect-2::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 3px solid transparent;
+    border-top-color: hsl(var(--primary));
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+
+  .loading-effect-2::after {
+    border-top-color: hsl(var(--accent));
+    animation-duration: 1.5s;
+    animation-direction: reverse;
+  }
+
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  .skeleton {
+    @apply bg-gradient-to-r from-muted via-muted-foreground/20 to-muted;
+    background-size: 200% 100%;
+    animation: skeleton-shimmer 1.5s ease-in-out infinite;
+  }
+}

@@ -90,22 +90,19 @@ Everything you see in the demo is powered by local mock data (for example `mockR
 
 ## Tech stack (demo)
 
-- React + TypeScript, targeting Next.js (App Router) with Tailwind CSS
-- Tailwind CSS and branded UI components (logo, cards, pills, loader)
-- Mock modules for leak reports and toolboxes
-- No production backend calls or real financial data
+- Next.js App Router + React 18 + TypeScript (pnpm managed)
+- Tailwind CSS with shadcn UI primitives + Radix building blocks
+- TanStack Query, next-themes, lucide-react, and Sonner for UX polish
+- Mock modules for leak reports and toolboxes (no real billing data)
 
 ## Getting started
 
 ```bash
-pnpm install      # or npm install
-pnpm dev          # or npm start, depending on the setup
+pnpm install
+pnpm dev
 ```
 
-Then open:
-
-- http://localhost:3000/ for the landing/story experience
-- http://localhost:3000/demo for the interactive mock report
+Then open http://localhost:3000 to explore the clickable mockup.
 
 ## Roadmap
 
@@ -118,7 +115,7 @@ Short-term:
 
 Medium-term:
 
-- Move fully to Next.js + Tailwind + TypeScript
+- Harden the Next.js + Tailwind + TypeScript implementation (or graduate it into a production stack)
 - Introduce basic backend endpoints for CSV upload and simple parsing/report generation
 - Add auth and multi-tenant support once storage and security are defined
 
