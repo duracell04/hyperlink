@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { HyperlinkLogo } from "@/components/HyperlinkLogo";
+import { InlineLoader } from "@/components/Loaders";
 import {
   fetchLeakReportMock,
   fetchToolboxesMock,
@@ -17,6 +18,8 @@ export default function DemoPage() {
   async function handleGenerate(e: React.FormEvent) {
     e.preventDefault();
     setLoading(true);
+    setReport(null);
+    setToolboxes([]);
     const [r, t] = await Promise.all([
       fetchLeakReportMock(),
       fetchToolboxesMock(),
@@ -67,6 +70,15 @@ export default function DemoPage() {
             {loading ? "Analyzing…" : "Generate mock report"}
           </button>
         </form>
+
+        {loading && (
+          <section className="rounded-2xl border border-slate-800 bg-slate-900/70 p-8">
+            <InlineLoader message="Analyzing your stack…" />
+            <p className="text-sm text-slate-400 mt-2">
+              We are simulating card-statement parsing and leakage detection.
+            </p>
+          </section>
+        )}
 
         {report && (
           <section className="space-y-6">
