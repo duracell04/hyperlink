@@ -7,37 +7,22 @@ const menus = [
   {
     id: 2,
     name: 'Toolboxes',
-    links: '#',
+    links: '/toolboxes',
     namesub: [
       {
         id: 1,
-        sub: 'Scholar',
-        links: '/toolboxes/scholar',
+        sub: 'Modern Web Studio',
+        links: '/toolboxes/modern_web_studio',
       },
       {
         id: 2,
-        sub: 'Secretary',
-        links: '/toolboxes/secretary',
+        sub: 'Growth Ops Command',
+        links: '/toolboxes/growth_ops_command',
       },
       {
         id: 3,
-        sub: 'Designer',
-        links: '/toolboxes/designer',
-      },
-      {
-        id: 4,
-        sub: 'Marketing',
-        links: '/toolboxes/marketing',
-      },
-      {
-        id: 5,
-        sub: 'Start-up',
-        links: '/toolboxes/start-up',
-      },
-      {
-        id: 6,
-        sub: 'Custom',
-        links: '/toolboxes/custom',
+        sub: 'AI Product Squad',
+        links: '/toolboxes/ai_product_squad',
       },
     ],
   },

@@ -26,14 +26,16 @@ export function ToolboxesMock() {
 
   return (
     <section style={{ marginTop: "3rem", color: "#e6eefc" }}>
-      <h2>Hyperlink Toolboxes (Mock)</h2>
+      <h2>Hyperlink Toolboxes Preview</h2>
       <p style={{ opacity: 0.8, marginBottom: "1rem" }}>
-        These are example stacks Hyperlink AI could recommend based on your role and goals.
+        Sample curated stacks that demonstrate how Hyperlink can explain the
+        why behind each tool and point you to the exact web apps worth trying.
       </p>
 
       {toolboxes.map((box) => (
         <div
           key={box.id}
+          id={box.id}
           style={{
             marginBottom: "2rem",
             padding: "1.5rem",
@@ -54,13 +56,23 @@ export function ToolboxesMock() {
               <strong>Ideal user:</strong> {box.idealUser}{" | "}
               <strong>Team size:</strong> {box.idealTeamSize}
             </p>
-            <p style={{ margin: "0.4rem 0 0", fontSize: "0.75rem", opacity: 0.7 }}>
+            <div
+              style={{
+                marginTop: "0.4rem",
+                fontSize: "0.75rem",
+                opacity: 0.75,
+                display: "flex",
+                flexWrap: "wrap",
+                alignItems: "center",
+                gap: "0.35rem",
+              }}
+            >
+              <strong style={{ fontSize: "0.75rem" }}>Focus:</strong>
               {box.tags.map((tag) => (
                 <span
                   key={tag}
                   style={{
                     display: "inline-block",
-                    marginRight: "0.4rem",
                     padding: "0.1rem 0.5rem",
                     borderRadius: 999,
                     background: "rgba(148,163,184,0.2)",
@@ -69,7 +81,7 @@ export function ToolboxesMock() {
                   {tag}
                 </span>
               ))}
-            </p>
+            </div>
           </div>
 
           <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>

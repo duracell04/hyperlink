@@ -6,17 +6,24 @@ interface BreadcrumbsProps {
   mainPage?: string;
   mainLink?: string;
   pageTitle: string;
+  pageTitleLabel?: string;
   secondLink?: string;
   innerPage?: string;
+  innerPageLabel?: string;
 }
 
 const Breadcrumbs: React.FC<BreadcrumbsProps> = ({
   mainPage = "Home",
   mainLink = "/",
   pageTitle,
+  pageTitleLabel,
   secondLink = "",
   innerPage,
+  innerPageLabel,
 }) => {
+  const displayPageTitle = pageTitleLabel ?? pageTitle;
+  const displayInnerPage = innerPageLabel ?? innerPage;
+
   return (
     <div className="container breadcrumb-section">
       <div className="row">
@@ -45,9 +52,11 @@ const Breadcrumbs: React.FC<BreadcrumbsProps> = ({
                   </svg>
                 </span>
                 {innerPage ? (
-                  <Link to={`/${secondLink}/${pageTitle}`}>{pageTitle}</Link>
+                  <Link to={`/${secondLink}/${pageTitle}`}>
+                    {displayPageTitle}
+                  </Link>
                 ) : (
-                  <span>{pageTitle}</span>
+                  <span>{displayPageTitle}</span>
                 )}
               </li>
               {innerPage && (
@@ -69,7 +78,7 @@ const Breadcrumbs: React.FC<BreadcrumbsProps> = ({
                       />
                     </svg>
                   </span>
-                  <span>{innerPage}</span>
+                  <span>{displayInnerPage}</span>
                 </li>
               )}
             </ul>
@@ -84,8 +93,10 @@ Breadcrumbs.propTypes = {
   mainPage: PropTypes.string,
   mainLink: PropTypes.string,
   pageTitle: PropTypes.string.isRequired,
+  pageTitleLabel: PropTypes.string,
   secondLink: PropTypes.string,
   innerPage: PropTypes.string,
+  innerPageLabel: PropTypes.string,
 };
 
 export default Breadcrumbs;

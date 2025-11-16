@@ -5,6 +5,7 @@ const Home = lazy(() => import('./Home'));
 const ProjectDetails = lazy(() => import('./ProjectDetails'));
 const UserDashboard = lazy(() => import('./TeamDetails'));
 
+const Toolboxes = lazy(() => import('./Toolboxes'));
 const Login = lazy(() => import('./Login'));
 const Register = lazy(() => import('./Register'));
 const ForgetPass = lazy(() => import('./ForgetPass'));
@@ -21,6 +22,7 @@ const routes = [
   { path: '/forgetPass', component: <ForgetPass /> },
 
   { path: '/', component: <Home /> },
+  { path: '/toolboxes', component: <Toolboxes /> },
 
   // User profile
   { path: '/dashboard', component: <UserDashboard /> },
